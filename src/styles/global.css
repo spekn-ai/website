@@ -1,0 +1,129 @@
+@import './brand-tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #6366f1 0%, #818cf8 50%, #a78bfa 100%);
+  }
+
+  .glow-button {
+    @apply relative overflow-hidden rounded-xl bg-indigo px-8 py-4 font-brand font-bold text-white transition-all;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+    transform: translateY(-1px);
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-indigo/10 bg-white/80 p-6 backdrop-blur-md dark:border-indigo/20 dark:bg-charcoal-light/80;
+  }
+
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .section-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero gradient mesh animation */
+@keyframes mesh-move {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+.hero-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(129, 140, 248, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 40% 80%, rgba(79, 70, 229, 0.12) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: mesh-move 15s ease infinite;
+}
+
+/* Animated S watermark */
+.s-watermark {
+  position: absolute;
+  opacity: 0.03;
+  font-family: var(--font-brand);
+  font-size: 40rem;
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.dark .s-watermark {
+  opacity: 0.05;
+}
+
+/* Terminal animation */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #6366f1; }
+}
+
+.typing-line {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid #6366f1;
+  animation: typing 2s steps(40, end) forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* Connecting line animation for Feed→Run→Capture */
+@keyframes draw-line {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+
+.connecting-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-line 1s ease-out forwards;
+}

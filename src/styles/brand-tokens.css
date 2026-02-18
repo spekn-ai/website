@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+:root {
+  --spekn-ink-navy: #1a1a1a;
+  --spekn-ghost-white: #fdfcfb;
+  --spekn-electric-indigo: #6366f1;
+  --spekn-deep-indigo: #4f46e5;
+  --spekn-light-indigo: #818cf8;
+  --spekn-slate-gray: #78716c;
+
+  --font-brand: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+
+  --motion-fast: 150ms;
+  --motion-standard: 220ms;
+  --motion-slow: 280ms;
+}

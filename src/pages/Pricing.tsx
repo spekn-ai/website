@@ -19,10 +19,11 @@ function useSectionReveal() {
 }
 
 const faqs = [
-  { q: "What AI agents does Spekn support?", a: "Spekn works with any ACP-compatible agent — Claude Code, Codex, Cursor, Windsurf, and more. The orchestration is agent-agnostic by design." },
+  { q: "What AI agents does Spekn support?", a: "Spekn works with any agent that supports MCP — Claude Code, Codex, Cursor, Gemini, Antigravity, and more. The Spekn Bridge and MCP server make orchestration agent-agnostic by design." },
   { q: "Do I need to rewrite my existing specs?", a: "No. Spekn imports from AGENTS.md, Spec Kit, OpenSpec, .cursorrules, plain Markdown, or any other format. It's a governance layer above your existing workflow." },
   { q: "What is the spec graph?", a: "A persistent knowledge structure that captures specifications, decisions, verification trails, and their relationships. Every session enriches it. Every new developer or agent picks up with full context." },
-  { q: "Can I self-host Spekn?", a: "Enterprise plans include self-hosted deployment options. Contact us for details." },
+  { q: "Does Spekn charge for AI compute?", a: "Never. Your agents run on your own keys, subscriptions, or local models. Spekn charges only for the governance infrastructure that makes all of it coherent." },
+  { q: "Can I self-host Spekn?", a: "Enterprise plans include three deployment modes: Spekn Cloud (managed), Dedicated cluster (single-tenant), and Self-hosted (your own infrastructure). Contact us for details." },
 ];
 
 export function Pricing() {
@@ -38,7 +39,7 @@ export function Pricing() {
             Simple, transparent <span className="gradient-text">pricing</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            Start free. Scale as your team and governance needs grow.
+            No AI credits. No compute markup. Your agents run on your keys — Spekn charges for the governance layer.
           </p>
 
           {/* Billing toggle */}
@@ -70,62 +71,60 @@ export function Pricing() {
           <div className="section-reveal grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <PricingCard
               name="Free"
-              price="€0"
               description="For individual developers getting started"
               features={[
                 "1 project",
-                "Basic context layering",
+                "Scoped Spekn Bridge (UI workflows)",
+                "Spec creation & context export",
+                "Basic decision records",
                 "CLI tools",
-                "Community support",
               ]}
               cta="Start Free"
             />
             <PricingCard
               name="Pro"
-              price="€29"
-              annualPrice="€26"
-              annualTotal="€312"
-              period="month"
+              monthlyPrice={49}
+              period="user/mo"
               description="For developers who need full governance"
               annual={annual}
               features={[
                 "Unlimited projects",
+                "Full Spekn Bridge + MCP server",
                 "Full 4-layer context",
-                "Decision tracking",
-                "Spec graph & drift detection",
-                "Priority support",
+                "Vector memory & spec graph",
+                "Run report capture",
+                "30-day audit trail",
               ]}
             />
             <PricingCard
               name="Team"
-              price="€49"
-              annualPrice="€44"
-              annualTotal="€528"
-              period="month"
-              perUser
-              description="For teams shipping with multiple agents"
+              monthlyPrice={99}
+              period="user/mo"
+              description="For teams running agent pipelines"
               popular
               annual={annual}
               features={[
                 "Everything in Pro",
-                "Multi-agent orchestration",
-                "Team-shared spec graph",
-                "Cost dashboard & analytics",
-                "ACP agent management",
-                "Dedicated support",
+                "Team collaboration & shared spec graph",
+                "EM orchestration & phase gates",
+                "GitHub / GitLab integration",
+                "CI context injection",
+                "Skills marketplace",
+                "SLA & dedicated support",
               ]}
             />
             <PricingCard
               name="Enterprise"
-              price="Custom"
+              customPrice="Custom"
               description="For organizations with compliance needs"
               features={[
                 "Everything in Team",
-                "Self-hosted deployment",
-                "SSO / SAML",
-                "Audit logs & compliance",
-                "Custom integrations",
-                "SLA & dedicated CSM",
+                "Cloud, Dedicated, or Self-hosted",
+                "Spekn-hosted agent sessions",
+                "Multi-repo governance",
+                "Deploy gate governance",
+                "SSO (Keycloak) & compliance export",
+                "HMAC-signed context bundles",
               ]}
               cta="Contact Sales"
             />

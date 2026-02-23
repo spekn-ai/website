@@ -31,27 +31,27 @@ export function Home() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="section-reveal text-center">
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              AI development is <span className="gradient-text">broken</span>
+              AI coding is <span className="gradient-text">broken</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              Teams are shipping faster than ever — but losing control, context, and consistency in the process.
+              Your team ships fast — but every tool, every agent, every pipeline step runs in its own bubble.
             </p>
           </div>
           <div className="section-reveal mt-16 grid gap-8 md:grid-cols-3">
             <FeatureCard
               icon={<Zap size={24} />}
-              title="Vibe Coding Chaos"
-              description="AI agents write code without understanding the why. No specs, no constraints, no governance."
+              title="Different tools, different realities"
+              description="One dev uses Claude Code, another prefers Cursor, CI runs Codex, someone just onboarded with Gemini. Each has its own config, its own memory, its own interpretation of the rules."
             />
             <FeatureCard
               icon={<RotateCcw size={24} />}
-              title="Manual Task Orchestration"
-              description="Teams still manually decompose work, write prompts, and babysit AI agents through every task."
+              title="No one owns the context"
+              description="Who updates the CLAUDE.md? Who syncs .cursorrules? Who retires the stale docs? Without governance, knowledge decays faster than it's created."
             />
             <FeatureCard
               icon={<Brain size={24} />}
-              title="Zero Institutional Memory"
-              description="Every new session starts from scratch. Decisions, context, and verification evidence vanish."
+              title="Reviewers reconstruct intent"
+              description="Code arrives at review with no trace of why it was built this way. Your humans aren't verifying outcomes — they're doing archaeology."
             />
           </div>
         </div>
@@ -65,7 +65,7 @@ export function Home() {
               Feed. Run. <span className="gradient-text">Capture.</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              A complete lifecycle for governed AI development.
+              Agents execute. Teams decide. Every run makes the next one smarter.
             </p>
           </div>
           <div className="section-reveal mt-16 grid gap-6 md:grid-cols-3">
@@ -76,7 +76,7 @@ export function Home() {
               </div>
               <h3 className="font-brand text-xl font-bold">Feed</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Structure your specs into layered context. Import from any format — AGENTS.md, Spec Kit, OpenSpec, or your own. Four context layers deliver the right depth to the right agent.
+                Replace scattered config files with structured, governed context. Four layers — from constraints to code patterns — delivered to every tool in the format it needs.
               </p>
               <div className="mt-4 rounded-lg bg-charcoal/5 px-3 py-2 font-mono text-xs text-indigo dark:bg-white/5">
                 spekn feed --spec auth.md --layers all
@@ -90,7 +90,7 @@ export function Home() {
               </div>
               <h3 className="font-brand text-xl font-bold">Run</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Orchestrate any agent with bounded tasks, acceptance criteria, and mechanical enforcement. Works with Claude Code, Codex, Cursor, or any ACP-compatible agent.
+                One governance layer across every tool your team uses. Claude Code, Codex, Cursor, Gemini, Antigravity — all running against the same specs, the same rules, the same source of truth.
               </p>
               <div className="mt-4 rounded-lg bg-charcoal/5 px-3 py-2 font-mono text-xs text-indigo dark:bg-white/5">
                 spekn run --agent claude --task T-042
@@ -122,7 +122,7 @@ export function Home() {
               The missing quadrant
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              Most tools optimize for AI capability or governance — not both.
+              Coding tools are powerful but ungoverned. Project tools govern but ignore AI. Spekn is the only layer built for both.
             </p>
           </div>
           <div className="section-reveal mx-auto mt-12 max-w-lg">
@@ -140,15 +140,15 @@ export function Home() {
               <div className="absolute top-1/2 left-8 right-8 h-px bg-gray-200 dark:bg-gray-700" />
               {/* Quadrant labels */}
               <div className="absolute left-12 top-12 font-body text-xs text-slate/60">
-                <p className="font-medium">Vibe Coding</p>
-                <p className="text-[10px]">High AI, Low Gov</p>
+                <p className="font-medium">Cursor / Claude Code</p>
+                <p className="text-[10px]">High AI, No Governance</p>
               </div>
               <div className="absolute left-12 bottom-12 font-body text-xs text-slate/60">
-                <p className="font-medium">Manual Coding</p>
+                <p className="font-medium">Linear</p>
                 <p className="text-[10px]">Low AI, Low Gov</p>
               </div>
               <div className="absolute right-12 bottom-12 font-body text-xs text-slate/60">
-                <p className="font-medium">Traditional PM</p>
+                <p className="font-medium">Jira</p>
                 <p className="text-[10px]">Low AI, High Gov</p>
               </div>
               {/* Spekn position */}
@@ -289,7 +289,7 @@ export function Home() {
               Ready to govern your AI development?
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-body text-lg text-gray-400">
-              Join the waitlist for early access to Spekn — the context and governance layer your team needs.
+              Stop rebuilding context from scratch every session. Spekn makes your team's knowledge available to every agent, every time.
             </p>
             <div className="mt-10 flex justify-center">
               <WaitlistForm />

@@ -3,33 +3,34 @@ import { cn } from "@/lib/utils";
 
 interface PricingCardProps {
   name: string;
-  price: string;
-  annualPrice?: string;
-  annualTotal?: string;
-  period?: string;
-  perUser?: boolean;
+  monthlyPrice?: number;
   description: string;
+  period?: string;
   features: string[];
   popular?: boolean;
   cta?: string;
   annual?: boolean;
+  customPrice?: string;
 }
 
 export function PricingCard({
   name,
-  price,
-  annualPrice,
-  annualTotal,
-  period,
-  perUser,
+  monthlyPrice,
   description,
+  period,
   features,
   popular,
   cta = "Get Started",
   annual = false,
+  customPrice,
 }: PricingCardProps) {
-  const displayPrice = annual && annualPrice ? annualPrice : price;
-  const showDiscount = annual && annualPrice;
+  const hasToggle = monthlyPrice != null && monthlyPrice > 0;
+  const annualMonthly = hasToggle ? Math.round(monthlyPrice * 0.9) : 0;
+  const annualTotal = hasToggle ? annualMonthly * 12 : 0;
+  const displayPrice = customPrice ?? (hasToggle
+    ? `$${annual ? annualMonthly : monthlyPrice}`
+    : "$0");
+  const showDiscount = hasToggle && annual;
 
   return (
     <div
@@ -52,17 +53,14 @@ export function PricingCard({
         {period && (
           <span className="font-body text-sm text-slate dark:text-gray-400"> / {period}</span>
         )}
-        {perUser && (
-          <span className="font-body text-sm text-slate dark:text-gray-400"> / user</span>
-        )}
         {showDiscount && (
           <span className="ml-2 inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
             Save 10%
           </span>
         )}
-        {showDiscount && annualTotal && (
+        {showDiscount && (
           <p className="mt-1 font-body text-xs text-slate/60 dark:text-gray-500">
-            Billed {annualTotal}/year
+            Billed at once — ${annualTotal.toLocaleString()}/year
           </p>
         )}
       </div>

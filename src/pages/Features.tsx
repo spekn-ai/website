@@ -33,7 +33,7 @@ export function Features() {
             The complete <span className="gradient-text">governance layer</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            Spekn implements Feed / Run / Capture — a lifecycle that turns ad-hoc AI prompting into governed, traceable development.
+            The context backbone that flows through your entire agent pipeline. Feed governed context, run traceable agents, capture organizational knowledge.
           </p>
         </div>
       </section>
@@ -48,14 +48,14 @@ export function Features() {
               </div>
               <h2 className="font-brand text-3xl font-extrabold">Feed</h2>
               <p className="mt-4 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
-                Structure your specifications into four context layers — Governance, Requirements, Architecture, and Implementation. Each agent receives exactly the depth it needs.
+                Deliver dynamic, governed context assembled from four layers — Constraints, Requirements, Technical context, and Guidance. Each agent receives exactly the depth it needs, assembled fresh every session.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  "4-layer context architecture",
-                  "Format-agnostic import (AGENTS.md, Spec Kit, OpenSpec, .cursorrules)",
-                  "Spec anchors link code to requirements",
-                  "Version-tracked with drift detection",
+                  "4-layer context architecture (Constraints → Requirements → Technical → Guidance)",
+                  "Format-agnostic: import from CLAUDE.md, .cursorrules, Spec Kit, OpenSpec, AGENTS.md",
+                  "Local agent files become generated exports from the governed platform",
+                  "Context is a product artifact — versioned, maintained, evolved alongside code",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
                     <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
@@ -67,10 +67,10 @@ export function Features() {
             <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-charcoal-light">
               <div className="font-mono text-sm leading-7 text-gray-600 dark:text-gray-400">
                 <p className="text-indigo">// spec: auth-flow.md</p>
-                <p className="text-slate">Layer 1: <span className="text-indigo-light">Governance</span> — constraints, policies</p>
-                <p className="text-slate">Layer 2: <span className="text-indigo-light">Requirements</span> — user stories, acceptance criteria</p>
-                <p className="text-slate">Layer 3: <span className="text-indigo-light">Architecture</span> — system design, interfaces</p>
-                <p className="text-slate">Layer 4: <span className="text-indigo-light">Implementation</span> — code patterns, examples</p>
+                <p className="text-slate">Layer 1: <span className="text-indigo-light">Constraints</span> — what NOT to do (governance rules, security policies, invariants)</p>
+                <p className="text-slate">Layer 2: <span className="text-indigo-light">Requirements</span> — what to build, with acceptance criteria and spec anchors</p>
+                <p className="text-slate">Layer 3: <span className="text-indigo-light">Technical</span> — architecture, patterns, dependencies, past decisions</p>
+                <p className="text-slate">Layer 4: <span className="text-indigo-light">Guidance</span> — examples, anti-patterns, lessons from previous runs</p>
               </div>
             </div>
           </div>
@@ -109,14 +109,14 @@ export function Features() {
               </div>
               <h2 className="font-brand text-3xl font-extrabold">Run</h2>
               <p className="mt-4 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
-                The Engineering Manager agent decomposes specs into bounded tasks with acceptance criteria. Any ACP-compatible agent executes — Claude Code, Codex, Cursor, or your own.
+                The Spekn Bridge and MCP server connect agents to Spekn's governance layer in real time. Connect your local agent instance or use BYOK/local LLM. The EM enforces phase gates — agents execute as stateless workers.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  "Agent-agnostic orchestration via ACP",
-                  "Bounded task execution with acceptance criteria",
-                  "Mechanical enforcement of architectural invariants",
-                  "Real-time progress tracking and cost dashboard",
+                  "Two connection modes: local agent or BYOK/local LLM",
+                  "6-phase workflow: Specify → Clarify → Plan → Implement → Verify → Complete",
+                  "Spekn never charges for AI compute — your keys, your models",
+                  "Pipeline-wide: same governed context from local session to CI to deploy gate",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
                     <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
@@ -139,7 +139,7 @@ export function Features() {
               </div>
               <h2 className="font-brand text-3xl font-extrabold">Capture</h2>
               <p className="mt-4 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
-                Every run enriches a persistent spec graph — decisions, verification trails, and institutional knowledge that compounds across sessions, developers, and projects.
+                After every run, Spekn captures decisions, code produced, deviations from spec, and verification results. The spec graph compounds with every run — the longer you use Spekn, the smarter every agent session gets.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
@@ -184,7 +184,7 @@ export function Features() {
             <FeatureCard icon={<Layers size={24} />} title="Layered Context" description="Four layers ensure every agent gets the right depth — from governance constraints to implementation details." />
             <FeatureCard icon={<Shield size={24} />} title="Mechanical Enforcement" description="Architectural invariants are enforced by the system, not by code review. At agent-scale throughput, human review can't keep up." />
             <FeatureCard icon={<GitBranch size={24} />} title="Drift Detection" description="When specs change, the system identifies affected tasks and outdated context — preventing stale decisions from propagating." />
-            <FeatureCard icon={<RefreshCw size={24} />} title="Agent-Agnostic" description="Works with any agent via ACP. Use Claude Code for backend, Cursor for frontend, Codex for boilerplate — Spekn governs them all." />
+            <FeatureCard icon={<RefreshCw size={24} />} title="Agent-Agnostic" description="Works with any agent via the Spekn Bridge and MCP server. Claude Code, Codex, Cursor, Gemini, Antigravity — use whatever fits. Spekn governs them all." />
             <FeatureCard icon={<Eye size={24} />} title="Full Traceability" description="Every line of code traces back to a spec anchor. Every decision records what was rejected and why. Complete audit trail." />
             <FeatureCard icon={<Workflow size={24} />} title="Format Agnostic" description="Import from Spec Kit, OpenSpec, AGENTS.md, BMAD, or plain Markdown. Spekn is the governance layer above any format." />
           </div>

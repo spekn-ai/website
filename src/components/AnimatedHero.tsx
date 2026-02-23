@@ -42,8 +42,7 @@ export function AnimatedHero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl font-body text-lg leading-relaxed text-gray-400 md:text-xl">
-            Spekn is the context and governance layer for AI-first development.
-            Feed structured specs. Run governed agents. Capture organizational knowledge.
+            Your team runs Claude Code, Codex, Cursor, Gemini, Antigravity — each with its own memory, its own rules. Spekn is the single source of truth that governs them all.
           </p>
 
           <div className="mt-10 flex justify-center">

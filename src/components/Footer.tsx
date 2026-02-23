@@ -42,7 +42,7 @@ export function Footer() {
               <span className="font-brand text-xl font-bold">spekn</span>
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-              The context and governance layer for AI-first development.
+              The context backbone for AI-first teams.
             </p>
           </div>
           {footerLinks.map((group) => (

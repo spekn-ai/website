@@ -11,6 +11,7 @@ interface PricingCardProps {
   cta?: string;
   annual?: boolean;
   customPrice?: string;
+  devise?: string;
 }
 
 export function PricingCard({
@@ -23,13 +24,16 @@ export function PricingCard({
   cta = "Get Started",
   annual = false,
   customPrice,
+  devise = "€",
 }: PricingCardProps) {
   const hasToggle = monthlyPrice != null && monthlyPrice > 0;
   const annualMonthly = hasToggle ? Math.round(monthlyPrice * 0.9) : 0;
   const annualTotal = hasToggle ? annualMonthly * 12 : 0;
-  const displayPrice = customPrice ?? (hasToggle
-    ? `$${annual ? annualMonthly : monthlyPrice}`
-    : "$0");
+  const displayPrice =
+    customPrice ??
+    (hasToggle
+      ? `${devise}${annual ? annualMonthly : monthlyPrice}`
+      : `${devise}0`);
   const showDiscount = hasToggle && annual;
 
   return (
@@ -47,11 +51,18 @@ export function PricingCard({
         </div>
       )}
       <h3 className="font-brand text-xl font-bold">{name}</h3>
-      <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">{description}</p>
+      <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">
+        {description}
+      </p>
       <div className="mt-6">
-        <span className="font-brand text-4xl font-extrabold">{displayPrice}</span>
+        <span className="font-brand text-4xl font-extrabold">
+          {displayPrice}
+        </span>
         {period && (
-          <span className="font-body text-sm text-slate dark:text-gray-400"> / {period}</span>
+          <span className="font-body text-sm text-slate dark:text-gray-400">
+            {" "}
+            / {period}
+          </span>
         )}
         {showDiscount && (
           <span className="ml-2 inline-block rounded-full bg-green-100 px-2 py-0.5 text-xs font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
@@ -68,7 +79,9 @@ export function PricingCard({
         {features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
             <Check size={16} className="mt-0.5 shrink-0 text-indigo" />
-            <span className="font-body text-sm text-slate dark:text-gray-400">{feature}</span>
+            <span className="font-body text-sm text-slate dark:text-gray-400">
+              {feature}
+            </span>
           </li>
         ))}
       </ul>

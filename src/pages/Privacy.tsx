@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
+import { Seo } from "@/components/Seo";
 
 export function Privacy() {
   return (
     <section className="mx-auto max-w-3xl px-6 py-24">
+      <Seo
+        title="Privacy Policy | Spekn"
+        description="Read the Spekn privacy policy, including data processing, retention, and your rights."
+        path="/privacy"
+      />
       <h1 className="font-brand text-4xl font-bold text-charcoal dark:text-white">
         Privacy Policy
       </h1>

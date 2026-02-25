@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { WaitlistForm } from "./WaitlistForm";
+import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const terminalLines = [
-  { prefix: "$ spekn", text: " feed --spec auth-flow.md --layers governance,requirements", delay: 0 },
-  { prefix: "\u2713", text: " Context layered: 4 anchors, 12 acceptance criteria", delay: 1200 },
+  { prefix: "$ spekn", text: " feed --spec auth-flow.md --layers intent,requirements", delay: 0 },
+  { prefix: "\u2713", text: " Context loaded: 4 spec anchors, 12 acceptance criteria", delay: 1200 },
   { prefix: "$ spekn", text: " run --agent claude --task implement-oauth", delay: 2400 },
   { prefix: "\u2713", text: " Task completed: 3 files changed, all criteria met", delay: 3600 },
   { prefix: "$ spekn", text: " capture --decisions --verification", delay: 4800 },
-  { prefix: "\u2713", text: " 2 decisions recorded, 12/12 criteria verified", delay: 6000 },
+  { prefix: "\u2713", text: " 2 decision records persisted, 12/12 verification evidence captured", delay: 6000 },
 ];
 
 export function AnimatedHero() {
@@ -36,17 +36,23 @@ export function AnimatedHero() {
           </div>
 
           <h1 className="font-brand text-5xl font-extrabold leading-tight tracking-tight text-white md:text-7xl">
-            Where product intent is{" "}
-            <span className="gradient-text">spoken</span>
-            , not assumed
+            AI Coding Sessions Reset. Your Decisions Shouldn&apos;t.
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl font-body text-lg leading-relaxed text-gray-400 md:text-xl">
-            Your team runs Claude Code, Codex, Cursor, Gemini, Antigravity — each with its own memory, its own rules. Spekn is the single source of truth that governs them all.
+            Spekn makes specs and decisions persistent so assumptions are not reintroduced across local sessions, CI, and PR validation.
           </p>
 
-          <div className="mt-10 flex justify-center">
-            <WaitlistForm />
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link to="/pricing" className="glow-button inline-flex items-center justify-center !px-8 !py-4 text-base">
+              Start Free
+            </Link>
+            <Link
+              to="/repo-checker"
+              className="inline-flex items-center justify-center rounded-xl border border-indigo/40 px-8 py-4 font-brand text-base font-bold text-indigo-light transition-colors hover:bg-white/5"
+            >
+              Run npx @spekn/check
+            </Link>
           </div>
         </div>
 

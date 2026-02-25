@@ -1,26 +1,51 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
+import { Seo } from "@/components/Seo";
+import { toAbsoluteUrl } from "@/lib/seo";
+import { NotFound } from "./NotFound";
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const post = blogPosts.find((p) => p.slug === slug);
 
   if (!post) {
-    return (
-      <div className="flex min-h-[60vh] items-center justify-center">
-        <div className="text-center">
-          <h1 className="font-brand text-4xl font-extrabold">Post not found</h1>
-          <Link to="/blog" className="mt-4 inline-block text-indigo hover:underline">
-            Back to blog
-          </Link>
-        </div>
-      </div>
-    );
+    return <NotFound />;
   }
+
+  const articlePath = `/blog/${post.slug}`;
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Spekn",
+      logo: {
+        "@type": "ImageObject",
+        url: toAbsoluteUrl("/logo.svg"),
+      },
+    },
+    mainEntityOfPage: toAbsoluteUrl(articlePath),
+    image: toAbsoluteUrl("/og-image.svg"),
+  };
 
   return (
     <div>
+      <Seo
+        title={`${post.title} | Spekn Blog`}
+        description={post.excerpt}
+        path={articlePath}
+        type="article"
+        jsonLd={articleJsonLd}
+      />
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-3xl px-6">
           <Link

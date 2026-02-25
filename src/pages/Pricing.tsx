@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { PricingCard } from "@/components/PricingCard";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { ChevronDown } from "lucide-react";
+import { Seo } from "@/components/Seo";
 
 function useSectionReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,10 +20,10 @@ function useSectionReveal() {
 }
 
 const faqs = [
-  { q: "What AI agents does Spekn support?", a: "Spekn works with any agent that supports MCP — Claude Code, Codex, Cursor, Gemini, Antigravity, and more. The Spekn Bridge and MCP server make orchestration agent-agnostic by design." },
-  { q: "Do I need to rewrite my existing specs?", a: "No. Spekn imports from AGENTS.md, Spec Kit, OpenSpec, .cursorrules, plain Markdown, or any other format. It's a governance layer above your existing workflow." },
-  { q: "What is the spec graph?", a: "A persistent knowledge structure that captures specifications, decisions, verification trails, and their relationships. Every session enriches it. Every new developer or agent picks up with full context." },
-  { q: "Does Spekn charge for AI compute?", a: "Never. Your agents run on your own keys, subscriptions, or local models. Spekn charges only for the governance infrastructure that makes all of it coherent." },
+  { q: "What AI agents does Spekn support?", a: "Any agent that supports MCP — including Claude Code, Codex, Cursor, Gemini, and others. Spekn Bridge + MCP server keep context consistent across tools." },
+  { q: "Do I need to rewrite my existing specs?", a: "No. Spekn imports AGENTS.md, Spec Kit, OpenSpec, .cursorrules, plain Markdown, and similar formats. Teams usually adopt incrementally, project by project." },
+  { q: "What is the spec graph?", a: "A persistent graph of versioned specs, spec anchors, decision records, and verification evidence. It reduces context drift across local sessions, CI runs, and pull requests." },
+  { q: "Does Spekn charge for AI compute?", a: "No. Your agents run on your own keys, subscriptions, or local models. Spekn does not sell AI credits or add compute markup." },
   { q: "Can I self-host Spekn?", a: "Enterprise plans include three deployment modes: Spekn Cloud (managed), Dedicated cluster (single-tenant), and Self-hosted (your own infrastructure). Contact us for details." },
 ];
 
@@ -33,13 +34,18 @@ export function Pricing() {
 
   return (
     <div ref={containerRef}>
+      <Seo
+        title="Pricing | Spekn"
+        description="Compare Spekn plans for solo, team, and enterprise continuity. Prevent context drift and decision overwrite with persistent specs, traceable runs, and verification evidence."
+        path="/pricing"
+      />
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
             Simple, transparent <span className="gradient-text">pricing</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            No AI credits. No compute markup. Your agents run on your keys — Spekn charges for the governance layer.
+            No AI credits. No compute markup. You pay for infrastructure that prevents context drift and decision overwrite across the pipeline.
           </p>
 
           {/* Billing toggle */}
@@ -71,12 +77,12 @@ export function Pricing() {
           <div className="section-reveal grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <PricingCard
               name="Free"
-              description="For individual developers getting started"
+              description="Free = personal clarity and solo continuity"
               features={[
                 "1 project",
                 "Scoped Spekn Bridge (UI workflows)",
                 "Spec creation & context export",
-                "Basic decision records",
+                "Persistent decision records",
                 "CLI tools",
               ]}
               cta="Start Free"
@@ -85,12 +91,12 @@ export function Pricing() {
               name="Pro"
               monthlyPrice={49}
               period="user/mo"
-              description="For developers who need full governance"
+              description="For serious solo workflows and reliable agent execution"
               annual={annual}
               features={[
                 "Unlimited projects",
                 "Full Spekn Bridge + MCP server",
-                "Full 4-layer context",
+                "Explicit 4-layer context model",
                 "Vector memory & spec graph",
                 "Run report capture",
                 "30-day audit trail",
@@ -100,7 +106,7 @@ export function Pricing() {
               name="Team"
               monthlyPrice={99}
               period="user/mo"
-              description="For teams running agent pipelines"
+              description="Team = coordination with shared spec graph + CI/PR"
               popular
               annual={annual}
               features={[
@@ -108,23 +114,23 @@ export function Pricing() {
                 "Team collaboration & shared spec graph",
                 "EM orchestration & phase gates",
                 "GitHub / GitLab integration",
-                "CI context injection",
+                "CI + PR context injection",
                 "Skills marketplace",
-                "SLA & dedicated support",
               ]}
             />
             <PricingCard
               name="Enterprise"
               customPrice="Custom"
-              description="For organizations with compliance needs"
+              description="Enterprise = governance at scale across many repos"
               features={[
                 "Everything in Team",
                 "Cloud, Dedicated, or Self-hosted",
                 "Spekn-hosted agent sessions",
-                "Multi-repo governance",
-                "Deploy gate governance",
-                "SSO (Keycloak) & compliance export",
+                "Multi-repo governance and policy controls",
+                "Deploy gate alignment enforcement",
+                "SSO (Keycloak), audit, and export",
                 "HMAC-signed context bundles",
+                "SLA & dedicated support",
               ]}
               cta="Contact Sales"
             />
@@ -173,7 +179,7 @@ export function Pricing() {
               Ready to get started?
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-body text-lg text-gray-400">
-              Join the waitlist and be among the first to experience governed AI development.
+              Join the waitlist and keep persistent intent across local sessions, CI, and PR validators.
             </p>
             <div className="mt-10 flex justify-center">
               <WaitlistForm />

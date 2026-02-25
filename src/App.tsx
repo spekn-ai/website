@@ -8,6 +8,7 @@ import { BlogPost } from "./pages/BlogPost";
 import { About } from "./pages/About";
 import { Privacy } from "./pages/Privacy";
 import { RepoChecker } from "./pages/RepoChecker";
+import { NotFound } from "./pages/NotFound";
 
 export function App() {
   return (
@@ -21,6 +22,7 @@ export function App() {
         <Route path="repo-checker" element={<RepoChecker />} />
         <Route path="about" element={<About />} />
         <Route path="privacy" element={<Privacy />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
-import { Zap, RotateCcw, Brain, FileText, Play, Database, ArrowRight, Terminal, ShieldCheck, BookOpen, Bot, GitBranch, Search } from "lucide-react";
+import { Link } from "react-router-dom";
+import { FileText, Play, Database, Terminal, ShieldCheck, BookOpen, Bot, GitBranch, Search, ArrowRight } from "lucide-react";
 import { AnimatedHero } from "@/components/AnimatedHero";
-import { FeatureCard } from "@/components/FeatureCard";
-import { WaitlistForm } from "@/components/WaitlistForm";
+import { Seo } from "@/components/Seo";
+import { toAbsoluteUrl } from "@/lib/seo";
 
 function useSectionReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,150 +22,114 @@ function useSectionReveal() {
 
 export function Home() {
   const containerRef = useSectionReveal();
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Spekn",
+      url: toAbsoluteUrl("/"),
+      logo: toAbsoluteUrl("/logo.svg"),
+      sameAs: [],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Spekn",
+      url: toAbsoluteUrl("/"),
+    },
+  ];
 
   return (
     <div ref={containerRef}>
+      <Seo
+        title="Spekn — AI Coding Sessions Reset. Decisions Shouldn't."
+        description="Stop repeating constraints to AI every session. Spekn keeps specs and decisions persistent so old assumptions are not reintroduced across local sessions, CI, and PR."
+        path="/"
+        jsonLd={jsonLd}
+      />
       <AnimatedHero />
 
-      {/* Problem Section */}
       <section className="relative overflow-hidden bg-ghost py-24 dark:bg-charcoal">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="section-reveal text-center">
-            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              AI coding is <span className="gradient-text">broken</span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              Your team ships fast — but every tool, every agent, every pipeline step runs in its own bubble.
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <div className="section-reveal">
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">AI Agents Are Fast. Alignment Is Not.</h2>
+            <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
+              Local sessions reset. CI runs start from partial context. PR validators enforce rules without full decision
+              history. Teams repeat instructions and recover intent from artifacts instead of verifying outcomes.
             </p>
-          </div>
-          <div className="section-reveal mt-16 grid gap-8 md:grid-cols-3">
-            <FeatureCard
-              icon={<Zap size={24} />}
-              title="Different tools, different realities"
-              description="One dev uses Claude Code, another prefers Cursor, CI runs Codex, someone just onboarded with Gemini. Each has its own config, its own memory, its own interpretation of the rules."
-            />
-            <FeatureCard
-              icon={<RotateCcw size={24} />}
-              title="No one owns the context"
-              description="Who updates the CLAUDE.md? Who syncs .cursorrules? Who retires the stale docs? Without governance, knowledge decays faster than it's created."
-            />
-            <FeatureCard
-              icon={<Brain size={24} />}
-              title="Reviewers reconstruct intent"
-              description="Code arrives at review with no trace of why it was built this way. Your humans aren't verifying outcomes — they're doing archaeology."
-            />
+            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
+              The problem is context drift and assumption reintroduction.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Solution: Feed → Run → Capture */}
       <section className="bg-white py-24 dark:bg-charcoal-light">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="section-reveal text-center">
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">One Source of Truth for Every Agent</h2>
+            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
+              Spekn turns specs into persistent intent. Decisions don&apos;t reset across sessions because each run is tied to
+              spec anchors, decision records, and verification evidence.
+            </p>
+            <ul className="mx-auto mt-8 grid max-w-3xl gap-3 text-left">
+              {[
+                "Versioned specs with stable spec anchors",
+                "Persistent decision records across runs",
+                "Traceable runs from local sessions + CI + PR validators",
+                "Verification evidence tied to acceptance criteria",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 font-body text-base text-slate dark:text-gray-400">
+                  <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ghost py-24 dark:bg-charcoal">
         <div className="mx-auto max-w-7xl px-6">
           <div className="section-reveal text-center">
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
               Feed. Run. <span className="gradient-text">Capture.</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              Agents execute. Teams decide. Every run makes the next one smarter.
-            </p>
           </div>
           <div className="section-reveal mt-16 grid gap-6 md:grid-cols-3">
-            {/* Feed */}
             <div className="glass-card relative">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo/10 text-indigo">
                 <FileText size={24} />
               </div>
               <h3 className="font-brand text-xl font-bold">Feed</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Replace scattered config files with structured, governed context. Four layers — from constraints to code patterns — delivered to every tool in the format it needs.
+                Stop restating constraints. Inject the same structured context every run.
               </p>
-              <div className="mt-4 rounded-lg bg-charcoal/5 px-3 py-2 font-mono text-xs text-indigo dark:bg-white/5">
-                spekn feed --spec auth.md --layers all
-              </div>
             </div>
 
-            {/* Run */}
             <div className="glass-card relative">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo/10 text-indigo">
                 <Play size={24} />
               </div>
               <h3 className="font-brand text-xl font-bold">Run</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                One governance layer across every tool your team uses. Claude Code, Codex, Cursor, Gemini, Antigravity — all running against the same specs, the same rules, the same source of truth.
+                Execute tasks against spec anchors so decisions don&apos;t get overwritten.
               </p>
-              <div className="mt-4 rounded-lg bg-charcoal/5 px-3 py-2 font-mono text-xs text-indigo dark:bg-white/5">
-                spekn run --agent claude --task T-042
-              </div>
             </div>
 
-            {/* Capture */}
             <div className="glass-card relative">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo/10 text-indigo">
                 <Database size={24} />
               </div>
               <h3 className="font-brand text-xl font-bold">Capture</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Decisions, verification trails, and a knowledge graph that compounds over time. Every run enriches the spec graph. Every session inherits full context.
+                Persist decisions and evidence so the next session starts informed.
               </p>
-              <div className="mt-4 rounded-lg bg-charcoal/5 px-3 py-2 font-mono text-xs text-indigo dark:bg-white/5">
-                spekn capture --decisions --evidence
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Positioning Quadrant */}
-      <section className="bg-ghost py-24 dark:bg-charcoal">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="section-reveal text-center">
-            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              The missing quadrant
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              Coding tools are powerful but ungoverned. Project tools govern but ignore AI. Spekn is the only layer built for both.
-            </p>
-          </div>
-          <div className="section-reveal mx-auto mt-12 max-w-lg">
-            <div className="relative aspect-square rounded-2xl border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-charcoal-light">
-              {/* Y-axis label */}
-              <div className="absolute -left-2 top-1/2 -translate-x-full -translate-y-1/2 -rotate-90 font-body text-xs font-medium text-slate whitespace-nowrap">
-                AI Capability &rarr;
-              </div>
-              {/* X-axis label */}
-              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 translate-y-full font-body text-xs font-medium text-slate">
-                Governance &rarr;
-              </div>
-              {/* Grid lines */}
-              <div className="absolute left-1/2 top-8 bottom-8 w-px bg-gray-200 dark:bg-gray-700" />
-              <div className="absolute top-1/2 left-8 right-8 h-px bg-gray-200 dark:bg-gray-700" />
-              {/* Quadrant labels */}
-              <div className="absolute left-12 top-12 font-body text-xs text-slate/60">
-                <p className="font-medium">Cursor / Claude Code</p>
-                <p className="text-[10px]">High AI, No Governance</p>
-              </div>
-              <div className="absolute left-12 bottom-12 font-body text-xs text-slate/60">
-                <p className="font-medium">Linear</p>
-                <p className="text-[10px]">Low AI, Low Gov</p>
-              </div>
-              <div className="absolute right-12 bottom-12 font-body text-xs text-slate/60">
-                <p className="font-medium">Jira</p>
-                <p className="text-[10px]">Low AI, High Gov</p>
-              </div>
-              {/* Spekn position */}
-              <div className="absolute right-10 top-10 flex items-center gap-2">
-                <div className="h-4 w-4 rounded-full bg-indigo animate-glow-pulse shadow-lg shadow-indigo/30" />
-                <div>
-                  <p className="font-brand text-sm font-bold text-indigo">Spekn</p>
-                  <p className="font-body text-[10px] text-slate">High AI + High Gov</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Repo Checker */}
       <section className="bg-white py-24 dark:bg-charcoal-light">
         <div className="mx-auto max-w-5xl px-6">
           <div className="section-reveal text-center">
@@ -172,24 +137,21 @@ export function Home() {
               <Terminal size={28} />
             </div>
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              How governed is <span className="gradient-text">your repo</span>?
+              How healthy is your <span className="gradient-text">context</span>?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              One command. No signup. Instant governance health score.
+              One command. No signup. Instant context health check and drift detection.
             </p>
           </div>
 
-          {/* Terminal mockup */}
           <div className="section-reveal mx-auto mt-12 max-w-2xl">
             <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-xl dark:border-gray-800">
-              {/* Title bar */}
               <div className="flex items-center gap-2 bg-gray-100 px-4 py-3 dark:bg-charcoal">
                 <div className="h-3 w-3 rounded-full bg-red-400" />
                 <div className="h-3 w-3 rounded-full bg-yellow-400" />
                 <div className="h-3 w-3 rounded-full bg-green-400" />
                 <span className="ml-2 font-mono text-xs text-slate/60 dark:text-gray-500">terminal</span>
               </div>
-              {/* Terminal content */}
               <div className="bg-charcoal px-6 py-6 font-mono text-sm leading-relaxed">
                 <p className="text-gray-400">
                   <span className="text-green-400">$</span> npx @spekn/check
@@ -197,49 +159,48 @@ export function Home() {
                 <p className="mt-4 text-gray-500">Scanning repository...</p>
                 <div className="mt-4 rounded-lg border border-gray-700 px-4 py-3">
                   <p className="text-lg font-bold text-white">
-                    Governance Health Score: <span className="text-yellow-400">42/100</span>{" "}
+                    Context Health Score: <span className="text-yellow-400">42/100</span>{" "}
                     <span className="text-yellow-400">(D)</span>
                   </p>
                 </div>
                 <div className="mt-4 space-y-1 text-xs">
-                  <p><span className="text-red-400">&#10005;</span> <span className="text-gray-300">Agent Context Depth</span> <span className="text-gray-600">...........</span> <span className="text-red-400">12/40</span></p>
-                  <p><span className="text-yellow-400">&#9679;</span> <span className="text-gray-300">Spec Traceability</span> <span className="text-gray-600">.............</span> <span className="text-yellow-400">14/22</span></p>
-                  <p><span className="text-green-400">&#10003;</span> <span className="text-gray-300">Governance Structure</span> <span className="text-gray-600">..........</span> <span className="text-green-400">16/18</span></p>
-                  <p><span className="text-red-400">&#10005;</span> <span className="text-gray-300">Decision Governance</span> <span className="text-gray-600">...........</span> <span className="text-red-400">0/12</span></p>
+                  <p><span className="text-red-400">&#10005;</span> <span className="text-gray-300">Assumption Reintroduction</span> <span className="text-gray-600">.......</span> <span className="text-red-400">3 recurring assumptions</span></p>
+                  <p><span className="text-yellow-400">&#9679;</span> <span className="text-gray-300">Spec Anchor Validity</span> <span className="text-gray-600">............</span> <span className="text-yellow-400">14/22 valid</span></p>
+                  <p><span className="text-green-400">&#10003;</span> <span className="text-gray-300">Decision Records</span> <span className="text-gray-600">................</span> <span className="text-green-400">16/18 linked</span></p>
+                  <p><span className="text-red-400">&#10005;</span> <span className="text-gray-300">Spec-Instruction-Code Drift</span> <span className="text-gray-600">....</span> <span className="text-red-400">0/12 guarded</span></p>
                   <p><span className="text-yellow-400">&#9679;</span> <span className="text-gray-300">Terminology Consistency</span> <span className="text-gray-600">.......</span> <span className="text-yellow-400">0/8</span></p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Check highlights */}
           <div className="section-reveal mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border border-gray-100 bg-ghost/50 p-5 dark:border-gray-800 dark:bg-charcoal/50">
               <Bot size={20} className="text-indigo" />
               <h4 className="mt-3 font-brand text-sm font-bold">Agent Context Depth</h4>
               <p className="mt-1 font-body text-xs leading-relaxed text-slate dark:text-gray-400">
-                Are your CLAUDE.md, AGENTS.md, and specs structured for AI consumption?
+                Are your CLAUDE.md, AGENTS.md, and versioned specs structured as persistent intent?
               </p>
             </div>
             <div className="rounded-xl border border-gray-100 bg-ghost/50 p-5 dark:border-gray-800 dark:bg-charcoal/50">
               <Search size={20} className="text-indigo" />
               <h4 className="mt-3 font-brand text-sm font-bold">Spec Traceability</h4>
               <p className="mt-1 font-body text-xs leading-relaxed text-slate dark:text-gray-400">
-                Do your specs exist, are they referenced in code, and can agents find them?
+                Are spec anchors valid, referenced in code, and visible to local sessions + CI + PR validators?
               </p>
             </div>
             <div className="rounded-xl border border-gray-100 bg-ghost/50 p-5 dark:border-gray-800 dark:bg-charcoal/50">
               <ShieldCheck size={20} className="text-indigo" />
-              <h4 className="mt-3 font-brand text-sm font-bold">Governance Structure</h4>
+              <h4 className="mt-3 font-brand text-sm font-bold">Decision Records</h4>
               <p className="mt-1 font-body text-xs leading-relaxed text-slate dark:text-gray-400">
-                CONTRIBUTING.md, changelogs, decision records — the governance essentials.
+                Are decision records explicit, versioned, and linked to spec anchors?
               </p>
             </div>
             <div className="rounded-xl border border-gray-100 bg-ghost/50 p-5 dark:border-gray-800 dark:bg-charcoal/50">
               <GitBranch size={20} className="text-indigo" />
-              <h4 className="mt-3 font-brand text-sm font-bold">Decision Governance</h4>
+              <h4 className="mt-3 font-brand text-sm font-bold">Drift Detection</h4>
               <p className="mt-1 font-body text-xs leading-relaxed text-slate dark:text-gray-400">
-                Are architectural decisions documented via ADRs, not buried in TODO comments?
+                Does your repo catch drift between specs, instructions, and code before merge?
               </p>
             </div>
             <div className="rounded-xl border border-gray-100 bg-ghost/50 p-5 dark:border-gray-800 dark:bg-charcoal/50">
@@ -259,7 +220,6 @@ export function Home() {
             </div>
           </div>
 
-          {/* CTA */}
           <div className="section-reveal mt-12 text-center">
             <div className="inline-flex items-center gap-3 rounded-xl bg-charcoal px-6 py-4 font-mono text-sm text-white dark:bg-gray-900">
               <span className="text-green-400">$</span>
@@ -281,18 +241,47 @@ export function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
+      <section className="bg-ghost py-24 dark:bg-charcoal">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="section-reveal text-center">
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">Start Solo. Scale With Confidence.</h2>
+          </div>
+          <div className="section-reveal mt-16 grid gap-6 md:grid-cols-3">
+            <div className="glass-card">
+              <h3 className="font-brand text-xl font-bold">Personal Clarity</h3>
+              <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Solo continuity. Fewer repeated instructions. Decisions persist from one session to the next.
+              </p>
+            </div>
+            <div className="glass-card">
+              <h3 className="font-brand text-xl font-bold">Team Coherence</h3>
+              <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Shared spec graph + CI/PR continuity. Fewer overwritten decisions across contributors.
+              </p>
+            </div>
+            <div className="glass-card">
+              <h3 className="font-brand text-xl font-bold">Organizational Governance</h3>
+              <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Governance at scale: audit exports, multi-repo controls, and traceable runs with verification evidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-charcoal py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="section-reveal">
             <h2 className="font-brand text-3xl font-extrabold text-white md:text-4xl">
-              Ready to govern your AI development?
+              Sessions Reset. Decisions Don&apos;t Have To.
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-body text-lg text-gray-400">
-              Stop rebuilding context from scratch every session. Spekn makes your team's knowledge available to every agent, every time.
+              Keep persistent intent across local sessions, CI, and PR validators.
             </p>
             <div className="mt-10 flex justify-center">
-              <WaitlistForm />
+              <Link to="/pricing" className="glow-button inline-flex items-center justify-center">
+                Start Free
+              </Link>
             </div>
           </div>
         </div>

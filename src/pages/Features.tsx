@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { FeatureCard } from "@/components/FeatureCard";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { Seo } from "@/components/Seo";
 
 function useSectionReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -26,14 +27,19 @@ export function Features() {
 
   return (
     <div ref={containerRef}>
+      <Seo
+        title="Features | Spekn"
+        description="Explore persistence, continuity, and verification: versioned specs, decision records, spec anchors, and traceable runs across local sessions, CI, and PR."
+        path="/features"
+      />
       {/* Hero */}
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
-            The complete <span className="gradient-text">governance layer</span>
+            Build with a <span className="gradient-text">Persistent Intent Layer</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            The context backbone that flows through your entire agent pipeline. Feed governed context, run traceable agents, capture organizational knowledge.
+            Sessions reset. Decisions should not. Spekn keeps versioned specs, decision records, and verification evidence connected across every run.
           </p>
         </div>
       </section>
@@ -48,14 +54,14 @@ export function Features() {
               </div>
               <h2 className="font-brand text-3xl font-extrabold">Feed</h2>
               <p className="mt-4 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
-                Deliver dynamic, governed context assembled from four layers — Constraints, Requirements, Technical context, and Guidance. Each agent receives exactly the depth it needs, assembled fresh every session.
+                Stop restating constraints. Inject the same structured context every run.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
                   "4-layer context architecture (Constraints → Requirements → Technical → Guidance)",
                   "Format-agnostic: import from CLAUDE.md, .cursorrules, Spec Kit, OpenSpec, AGENTS.md",
-                  "Local agent files become generated exports from the governed platform",
-                  "Context is a product artifact — versioned, maintained, evolved alongside code",
+                  "Local instruction files become generated exports from versioned specs",
+                  "Persistent intent is maintained as a product artifact alongside code",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
                     <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
@@ -67,7 +73,7 @@ export function Features() {
             <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-charcoal-light">
               <div className="font-mono text-sm leading-7 text-gray-600 dark:text-gray-400">
                 <p className="text-indigo">// spec: auth-flow.md</p>
-                <p className="text-slate">Layer 1: <span className="text-indigo-light">Constraints</span> — what NOT to do (governance rules, security policies, invariants)</p>
+                <p className="text-slate">Layer 1: <span className="text-indigo-light">Constraints</span> — what not to do (safety rules, security policies, invariants)</p>
                 <p className="text-slate">Layer 2: <span className="text-indigo-light">Requirements</span> — what to build, with acceptance criteria and spec anchors</p>
                 <p className="text-slate">Layer 3: <span className="text-indigo-light">Technical</span> — architecture, patterns, dependencies, past decisions</p>
                 <p className="text-slate">Layer 4: <span className="text-indigo-light">Guidance</span> — examples, anti-patterns, lessons from previous runs</p>
@@ -109,14 +115,14 @@ export function Features() {
               </div>
               <h2 className="font-brand text-3xl font-extrabold">Run</h2>
               <p className="mt-4 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
-                The Spekn Bridge and MCP server connect agents to Spekn's governance layer in real time. Connect your local agent instance or use BYOK/local LLM. The EM enforces phase gates — agents execute as stateless workers.
+                Execute tasks against spec anchors so decisions don&apos;t get overwritten.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
                   "Two connection modes: local agent or BYOK/local LLM",
                   "6-phase workflow: Specify → Clarify → Plan → Implement → Verify → Complete",
                   "Spekn never charges for AI compute — your keys, your models",
-                  "Pipeline-wide: same governed context from local session to CI to deploy gate",
+                  "Pipeline-wide: same structured context across local sessions + CI + PR validators",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
                     <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
@@ -139,13 +145,13 @@ export function Features() {
               </div>
               <h2 className="font-brand text-3xl font-extrabold">Capture</h2>
               <p className="mt-4 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
-                After every run, Spekn captures decisions, code produced, deviations from spec, and verification results. The spec graph compounds with every run — the longer you use Spekn, the smarter every agent session gets.
+                Persist decisions and evidence so the next session starts informed.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
                   "Decision records with rejected alternatives",
-                  "Per-criterion verification evidence",
-                  "Spec graph with versioning and drift detection",
+                  "Per-criterion verification evidence linked to spec anchors",
+                  "Spec graph with versioned specs and drift detection",
                   "Vector memory for semantic search across all context",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
@@ -181,25 +187,126 @@ export function Features() {
             </p>
           </div>
           <div className="section-reveal mt-16 grid gap-8 md:grid-cols-3">
-            <FeatureCard icon={<Layers size={24} />} title="Layered Context" description="Four layers ensure every agent gets the right depth — from governance constraints to implementation details." />
-            <FeatureCard icon={<Shield size={24} />} title="Mechanical Enforcement" description="Architectural invariants are enforced by the system, not by code review. At agent-scale throughput, human review can't keep up." />
-            <FeatureCard icon={<GitBranch size={24} />} title="Drift Detection" description="When specs change, the system identifies affected tasks and outdated context — preventing stale decisions from propagating." />
-            <FeatureCard icon={<RefreshCw size={24} />} title="Agent-Agnostic" description="Works with any agent via the Spekn Bridge and MCP server. Claude Code, Codex, Cursor, Gemini, Antigravity — use whatever fits. Spekn governs them all." />
-            <FeatureCard icon={<Eye size={24} />} title="Full Traceability" description="Every line of code traces back to a spec anchor. Every decision records what was rejected and why. Complete audit trail." />
-            <FeatureCard icon={<Workflow size={24} />} title="Format Agnostic" description="Import from Spec Kit, OpenSpec, AGENTS.md, BMAD, or plain Markdown. Spekn is the governance layer above any format." />
+            <FeatureCard icon={<Layers size={24} />} title="Layered Context" description="Four layers ensure the right depth per run, from hard constraints to implementation details." />
+            <FeatureCard icon={<Shield size={24} />} title="Mechanical Enforcement" description="Architectural invariants are enforced by the system, not memory. This reduces regressions and overwritten decisions." />
+            <FeatureCard icon={<GitBranch size={24} />} title="Drift Detection" description="When specs change, impacted tasks and stale assumptions are flagged before they reappear in later runs." />
+            <FeatureCard icon={<RefreshCw size={24} />} title="Agent-Agnostic" description="Works with any agent via Spekn Bridge + MCP server while preserving the same structured context bundle per run." />
+            <FeatureCard icon={<Eye size={24} />} title="Full Traceability" description="Every code path maps to spec anchors. Every decision record links rationale, rejected options, and verification evidence." />
+            <FeatureCard icon={<Workflow size={24} />} title="Format Agnostic" description="Import Spec Kit, OpenSpec, AGENTS.md, BMAD, or plain Markdown into one context continuity layer." />
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="bg-ghost py-24 dark:bg-charcoal">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="section-reveal text-center">
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
+              Pricing that scales with your pipeline
+            </h2>
+            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
+              No AI credits and no compute markup. You pay for infrastructure that prevents context drift and decision overwrite across the pipeline.
+            </p>
+          </div>
+
+          <div className="section-reveal mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-charcoal-light">
+              <h3 className="font-brand text-2xl font-extrabold">Free</h3>
+              <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">For individual evaluation and early workflows.</p>
+              <p className="mt-6 font-brand text-3xl font-extrabold">$0</p>
+              <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">per user / month</p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Core FEED / RUN / CAPTURE flow",
+                  "4-layer context architecture",
+                  "Runs on your own keys and models",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
+                    <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-charcoal-light">
+              <h3 className="font-brand text-2xl font-extrabold">Pro</h3>
+              <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">For engineers running production agent workflows.</p>
+              <p className="mt-6 font-brand text-3xl font-extrabold">$49</p>
+              <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">per user / month</p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Everything in Free",
+                  "Bridge + MCP connectivity",
+                  "Drift detection and verification evidence",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
+                    <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-indigo bg-white p-6 dark:border-indigo dark:bg-charcoal-light">
+              <h3 className="font-brand text-2xl font-extrabold">Team</h3>
+              <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">For teams standardizing one coherent delivery pipeline.</p>
+              <p className="mt-6 font-brand text-3xl font-extrabold">$99</p>
+              <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">per user / month</p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Everything in Pro",
+                  "Shared spec graph and decision records",
+                  "Pipeline-level controls and auditability",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
+                    <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-charcoal-light">
+              <h3 className="font-brand text-2xl font-extrabold">Enterprise</h3>
+              <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">For regulated environments and large-scale rollouts.</p>
+              <p className="mt-6 font-brand text-3xl font-extrabold">Custom</p>
+              <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">pricing and deployment</p>
+              <ul className="mt-6 space-y-3">
+                {[
+                  "Everything in Team",
+                  "Deployment and policy requirements support",
+                  "Commercial and security review process",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 font-body text-sm text-slate dark:text-gray-400">
+                    <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="section-reveal mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a href="#waitlist-cta" className="glow-button inline-flex items-center gap-2 !px-6 !py-3 text-sm">
+              Join Waitlist <ArrowRight size={16} />
+            </a>
+            <a href="#waitlist-cta" className="inline-flex items-center gap-2 rounded-xl border border-gray-300 bg-white px-6 py-3 font-body text-sm text-slate transition-all hover:border-indigo hover:text-indigo dark:border-gray-700 dark:bg-charcoal-light dark:text-gray-300">
+              Talk to Sales <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-charcoal py-24">
+      <section id="waitlist-cta" className="bg-charcoal py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="section-reveal">
             <h2 className="font-brand text-3xl font-extrabold text-white md:text-4xl">
-              Start building with governance
+              Keep decisions stable from spec to ship
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-body text-lg text-gray-400">
-              Join early access and be among the first to govern your AI development workflow.
+              Join early access to reduce repeated instructions, assumption reintroduction, and overwritten decisions.
             </p>
             <div className="mt-10 flex justify-center">
               <WaitlistForm />

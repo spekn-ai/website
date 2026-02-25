@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
 import {
   Terminal, Bot, Search, ShieldCheck, GitBranch, BookOpen,
-  Check, Clock, Lock, FileJson, FileText as FileMarkdown,
+  Check, Clock, Lock, FileJson, FileText as FileMarkdown, ArrowRight,
 } from "lucide-react";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { Seo } from "@/components/Seo";
 
 function useSectionReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,28 +25,37 @@ const checks = [
   {
     icon: Bot,
     title: "Agent Context Depth",
-    description: "Are your CLAUDE.md, AGENTS.md, and specs structured for AI consumption?",
+    description: "Structured context layers detected across instruction files and versioned specs.",
   },
   {
     icon: Search,
-    title: "Spec Traceability",
-    description: "Do your specs exist, are they referenced in code, and can agents find them?",
+    title: "Drift Detection",
+    description: "Drift between specs, agent instructions, and code is detected before merge.",
   },
   {
     icon: ShieldCheck,
-    title: "Governance Structure",
-    description: "CONTRIBUTING.md, changelogs, decision records — the governance essentials.",
+    title: "Anchor Validation",
+    description: "Spec anchor validity is checked against code paths, decisions, and verification artifacts.",
   },
   {
     icon: GitBranch,
-    title: "Decision Governance",
-    description: "Are architectural decisions documented via ADRs, not buried in TODO comments?",
+    title: "Decision Lineage",
+    description: "Architectural decisions traced through ADRs, commits, and referenced specs.",
   },
   {
     icon: BookOpen,
     title: "Terminology Consistency",
-    description: "Is your product named 3 different ways across the repo? We'll find out.",
+    description: "Domain terms normalized across prompts, docs, and source files.",
   },
+];
+
+const analyzeSignals = [
+  "Instruction/spec structure integrity",
+  "Requirement-to-code anchor validity and coverage",
+  "Decision lineage and trace continuity",
+  "Assumption reintroduction detection",
+  "Repository-wide terminology normalization",
+  "Declared-vs-implemented drift signals",
 ];
 
 export function RepoChecker() {
@@ -53,6 +63,11 @@ export function RepoChecker() {
 
   return (
     <div ref={containerRef}>
+      <Seo
+        title="Repo Checker | Spekn Context Health Check"
+        description="Run Spekn Check to detect context drift, reintroduced assumptions, and invalid spec anchors across specs, instructions, and code."
+        path="/repo-checker"
+      />
       {/* Hero */}
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
@@ -60,10 +75,10 @@ export function RepoChecker() {
             <Terminal size={28} />
           </div>
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
-            How governed is <span className="gradient-text">your repo</span>?
+            Run a <span className="gradient-text">context health check</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            One command. No signup. No data sent. Instant governance health score.
+            One command to catch context drift, assumption reintroduction, and spec anchor validity issues.
           </p>
           <div className="mt-10 inline-flex items-center gap-3 rounded-xl bg-white/5 px-6 py-4 font-mono text-sm text-white">
             <span className="text-green-400">$</span>
@@ -95,19 +110,25 @@ export function RepoChecker() {
                 <p className="text-gray-400">
                   <span className="text-green-400">$</span> npx @spekn/check
                 </p>
-                <p className="mt-4 text-gray-500">Scanning repository...</p>
+                <p className="mt-4 text-gray-500">Scanning repository for context signals...</p>
                 <div className="mt-4 rounded-lg border border-gray-700 px-4 py-3">
                   <p className="text-lg font-bold text-white">
-                    Governance Health Score: <span className="text-yellow-400">42/100</span>{" "}
-                    <span className="text-yellow-400">(D)</span>
+                    Context Health Score: <span className="text-yellow-400">71/100</span>{" "}
+                    <span className="text-yellow-400">(C)</span>
                   </p>
                 </div>
-                <div className="mt-4 space-y-1 text-xs">
-                  <p><span className="text-red-400">&#10005;</span> <span className="text-gray-300">Agent Context Depth</span> <span className="text-gray-600">...........</span> <span className="text-red-400">12/40</span></p>
-                  <p><span className="text-yellow-400">&#9679;</span> <span className="text-gray-300">Spec Traceability</span> <span className="text-gray-600">.............</span> <span className="text-yellow-400">14/22</span></p>
-                  <p><span className="text-green-400">&#10003;</span> <span className="text-gray-300">Governance Structure</span> <span className="text-gray-600">..........</span> <span className="text-green-400">16/18</span></p>
-                  <p><span className="text-red-400">&#10005;</span> <span className="text-gray-300">Decision Governance</span> <span className="text-gray-600">...........</span> <span className="text-red-400">0/12</span></p>
-                  <p><span className="text-yellow-400">&#9679;</span> <span className="text-gray-300">Terminology Consistency</span> <span className="text-gray-600">.......</span> <span className="text-yellow-400">0/8</span></p>
+                <div className="mt-4 space-y-1 text-xs text-gray-300">
+                  <p><span className="text-red-400">&#10005;</span> Drift Detection <span className="text-gray-600">.................</span> <span className="text-red-400">2 spec-instruction-code drifts</span></p>
+                  <p><span className="text-yellow-400">&#9679;</span> Anchor Validation <span className="text-gray-600">................</span> <span className="text-yellow-400">37/52 anchors valid</span></p>
+                  <p><span className="text-green-400">&#10003;</span> Decision Lineage <span className="text-gray-600">................</span> <span className="text-green-400">11/13 decisions traced</span></p>
+                  <p><span className="text-yellow-400">&#9679;</span> Assumption Reintroduction <span className="text-gray-600">..........</span> <span className="text-yellow-400">3 recurring assumptions</span></p>
+                  <p><span className="text-red-400">&#10005;</span> Terminology Consistency <span className="text-gray-600">..........</span> <span className="text-red-400">4 conflicting terms</span></p>
+                </div>
+                <div className="mt-4 rounded-lg border border-gray-700 px-4 py-3 text-xs text-gray-300">
+                  <p className="text-gray-500">Example output</p>
+                  <p className="mt-1">- <span className="text-yellow-400">assumption reintroduction:</span> "retry=3" appears in <span className="text-gray-400">AGENTS.md</span> after spec changed to "retry=5"</p>
+                  <p>- <span className="text-yellow-400">drift:</span> <span className="text-gray-400">spec/payment.md#retry-policy</span> differs from <span className="text-gray-400">AGENTS.md</span> and <span className="text-gray-400">src/billing/retry.ts</span></p>
+                  <p>- <span className="text-yellow-400">anchor validity:</span> requirement <span className="text-gray-400">checkout.rq.4</span> has no linked verification evidence</p>
                 </div>
               </div>
             </div>
@@ -120,17 +141,31 @@ export function RepoChecker() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="section-reveal text-center">
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              What it checks
+              Five Signals. One Context Health Score.
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              Five governance dimensions, scored individually and aggregated into your overall health score.
+            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-charcoal/80 dark:text-gray-300">
+              Each signal is scored 0-100 and combined into a weighted Context Health Score.
             </p>
+          </div>
+          <div className="section-reveal mx-auto mt-8 max-w-3xl">
+            <ul className="mx-auto w-fit space-y-2 text-left">
+              {analyzeSignals.map((item) => (
+                <li key={item} className="flex items-start gap-3 font-body text-sm leading-relaxed text-charcoal/80 dark:text-gray-300">
+                  <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="section-reveal mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {checks.map((check) => (
               <div
                 key={check.title}
-                className="rounded-xl border border-gray-100 bg-ghost/50 p-6 dark:border-gray-800 dark:bg-charcoal/50"
+                className={`rounded-xl border p-6 ${
+                  check.title === "Anchor Validation"
+                    ? "border-indigo/40 bg-indigo/5 dark:border-indigo/40 dark:bg-indigo/10"
+                    : "border-gray-100 bg-ghost/50 dark:border-gray-800 dark:bg-charcoal/50"
+                }`}
               >
                 <check.icon size={20} className="text-indigo" />
                 <h4 className="mt-3 font-brand text-sm font-bold">{check.title}</h4>
@@ -139,11 +174,11 @@ export function RepoChecker() {
                 </p>
               </div>
             ))}
-            <div className="flex items-center justify-center rounded-xl border border-dashed border-indigo/30 bg-indigo/5 p-6 text-center dark:bg-indigo/10">
+            <div className="flex items-center justify-center rounded-xl border border-dashed border-gray-300/70 bg-gray-50 p-6 text-center opacity-80 dark:border-gray-700 dark:bg-charcoal/40">
               <div>
-                <p className="font-brand text-sm font-bold text-indigo">More checks coming</p>
+                <p className="font-brand text-xs font-semibold uppercase tracking-wide text-slate/80 dark:text-gray-400">Roadmap Diagnostics</p>
                 <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">
-                  CI/CD governance, secret management, and dependency audits are on the roadmap.
+                  Run-to-run stability, cross-agent handoff quality, and deeper anchor diagnostics are on the roadmap.
                 </p>
               </div>
             </div>
@@ -184,7 +219,7 @@ export function RepoChecker() {
               </div>
               <h4 className="mt-4 font-brand text-base font-bold">3. Get your score</h4>
               <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">
-                Receive a detailed breakdown with actionable recommendations to improve your governance posture.
+                Receive a detailed breakdown with actionable fixes to reduce repeated instructions and prevent decision overwrite.
               </p>
             </div>
           </div>
@@ -215,7 +250,7 @@ export function RepoChecker() {
               <FileJson size={24} className="mx-auto text-indigo" />
               <h4 className="mt-3 font-brand text-sm font-bold">JSON</h4>
               <p className="mt-1 font-body text-xs text-slate dark:text-gray-400">
-                Machine-readable for CI/CD pipelines and dashboards.
+                Machine-readable for CI checks and context quality dashboards.
               </p>
               <code className="mt-3 inline-block rounded bg-gray-100 px-2 py-1 text-xs dark:bg-charcoal">npx @spekn/check --json</code>
             </div>
@@ -301,7 +336,7 @@ export function RepoChecker() {
               </button>
             </div>
             <p className="mx-auto mt-6 max-w-xl font-body text-lg text-gray-400">
-              Want the full governance platform? Join the waitlist.
+              Start on the Spekn Free plan for ongoing context alignment checks as your agent workflows scale.
             </p>
             <div className="mt-8 flex justify-center">
               <WaitlistForm />

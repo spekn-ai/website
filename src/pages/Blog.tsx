@@ -1,9 +1,15 @@
 import { blogPosts } from "@/lib/blog-data";
 import { BlogCard } from "@/components/BlogCard";
+import { Seo } from "@/components/Seo";
 
 export function Blog() {
   return (
     <div>
+      <Seo
+        title="Blog | Spekn"
+        description="Technical writing on context drift, harness engineering, and spec-driven AI agent development."
+        path="/blog"
+      />
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">Blog</h1>

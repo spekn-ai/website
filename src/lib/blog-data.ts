@@ -2,6 +2,9 @@ export interface BlogPost {
   slug: string;
   title: string;
   date: string;
+  publishedAt: string;
+  updatedAt: string;
+  author: string;
   excerpt: string;
   readTime: string;
   content: string;
@@ -9,10 +12,110 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "harness-engineering-the-missing-layer",
-    title: "Harness Engineering: Why the Future of AI Development Isn't About Better Models",
+    slug: "ai-agent-drift-repeatability-team-consistency",
+    title:
+      "AI Agent Drift: A Practical System for Repeatability and Team Consistency",
     date: "February 2026",
-    excerpt: "OpenAI just published something important. Not a new model. Not a benchmark. A blog post about how three engineers built a million-line codebase in five months — with zero hand-written code. They called the discipline behind it harness engineering.",
+    publishedAt: "2026-02-25",
+    updatedAt: "2026-02-25",
+    author: "Jean-Baptiste Pin",
+    excerpt:
+      "AI agent speed is no longer the bottleneck. Coherence is. This guide defines drift, repeatability, and session-to-session consistency, then outlines an implementation model teams can apply across local runs, CI, and collaborative workflows.",
+    readTime: "10 min read",
+    content: `AI agents now produce code quickly enough that most teams hit a different constraint first: **context coherence over time**. When context drifts, output quality becomes unstable, review cost increases, and teams lose trust in automated execution.
+
+This article provides a practical model for reducing drift and improving repeatability across sessions, contributors, and tools.
+
+## TL;DR
+
+- Drift is the divergence between declared intent and executed behavior.
+- Repeatability means equivalent inputs produce equivalent outcomes.
+- Team consistency means every contributor and agent uses the same definitions, constraints, and acceptance criteria.
+- The core mechanism is simple: structured specs, stable anchors, explicit decision records, and traceable verification evidence.
+
+## Definitions
+
+- Agent drift: Divergence between implementation behavior and current specification intent.
+- Session consistency: Equivalent tasks produce materially equivalent outcomes across sessions.
+- Team consistency: Contributors and agents operate from one shared context model.
+- Repeatability: Equivalent context + equivalent task scope -> equivalent implementation outcome.
+- Spec anchor: Stable identifier linking requirement, implementation, and verification evidence.
+
+## Why Drift Happens in Real Teams
+
+Drift is usually not one large failure. It is the accumulation of small inconsistencies:
+
+- Prompt context differs between local runs and CI checks.
+- Requirements are described in prose but not anchored to implementation points.
+- Decisions are captured in chat, not in durable records.
+- Terminology changes across files, creating multiple interpretations of the same concept.
+- Verification reports exist, but are not linked to specific acceptance criteria.
+
+## A Repeatability Model That Works
+
+1. **Define intent in structured specs.** Keep constraints, requirements, technical context, and guidance as separate layers.
+2. **Assign stable anchors.** Each requirement gets an identifier that remains stable across revisions.
+3. **Route context by task.** Agents receive only the relevant slices plus required constraints.
+4. **Record decisions at run time.** Capture what was decided, what was rejected, and why.
+5. **Attach verification evidence.** Each acceptance criterion maps to explicit pass/fail artifacts.
+6. **Run drift checks continuously.** Compare declared behavior vs implemented behavior on every handoff.
+
+## Team Collaboration Pattern
+
+For multi-agent and multi-person workflows, consistency depends on role boundaries and shared artifacts:
+
+- Product/tech leads own requirement anchors and acceptance criteria.
+- Implementing agents consume task-scoped context and must reference anchors in outputs.
+- Review agents validate implementation against anchors, not against ad hoc interpretation.
+- CI gates enforce minimum anchor coverage and drift thresholds before merge.
+- Post-merge runs capture decisions back into the spec graph.
+
+## Operational Metrics
+
+Track these metrics per repository and over time:
+
+- Drift findings per run (critical, major, minor)
+- Anchor coverage (% requirements linked to code + verification)
+- Rework rate from context mismatch
+- Cross-session variance on equivalent tasks
+- Decision capture rate (% significant changes with recorded rationale)
+
+## Minimal Implementation Checklist
+
+- Structured spec files with explicit constraints and acceptance criteria
+- Stable requirement anchor format (example: auth.rq.12)
+- Decision log template with rejected alternatives
+- Verification output mapped to anchors
+- CI check for drift and anchor coverage thresholds
+
+## What This Changes
+
+With this model, teams stop treating agent output as isolated artifacts and start treating execution as a traceable system. The result is not just better code quality. It is a measurable increase in predictability, lower review overhead, and higher trust in automation across sessions and teams.
+
+## FAQ
+
+### Is this specific to one coding agent?
+
+No. The pattern is agent-agnostic. The requirement is not model choice. The requirement is consistent context and traceable enforcement.
+
+### Can a small team benefit without heavy process?
+
+Yes. Start with anchors, decision records, and one drift check in CI. Add layers incrementally.
+
+### Does repeatability mean identical output every time?
+
+Not byte-for-byte. It means outcomes remain within accepted behavioral bounds for the same intent and constraints.`,
+  },
+  {
+    slug: "harness-engineering-the-missing-layer",
+    title:
+      "Harness Engineering: Why the Future of AI Development Isn't About Better Models",
+    date: "February 2026",
+    publishedAt: "2026-02-10",
+    updatedAt: "2026-02-10",
+    author: "Jean-Baptiste Pin",
+    excerpt:
+      "OpenAI just published something important. Not a new model. Not a benchmark. A blog post about how three engineers built a million-line codebase in five months — with zero hand-written code. They called the discipline behind it harness engineering.",
     readTime: "12 min read",
     content: `OpenAI just published something important. Not a new model. Not a benchmark. A blog post about how three engineers built a million-line codebase in five months — with zero hand-written code. They called the discipline behind it **harness engineering**.
 
@@ -63,7 +166,11 @@ The harness is the product now.`,
     slug: "when-your-ai-forgets-why-decision-tracking",
     title: "When Your AI Forgets Why: The Hidden Cost of Lost Decisions",
     date: "February 2026",
-    excerpt: "A systems engineer shared a conversation with us. Their AI agent made a critical architectural recommendation. It was wrong. The agent later corrected itself. But if that conversation had ended one message earlier, the wrong architecture would have shipped.",
+    publishedAt: "2026-02-18",
+    updatedAt: "2026-02-18",
+    author: "Jean-Baptiste Pin",
+    excerpt:
+      "A systems engineer shared a conversation with us. Their AI agent made a critical architectural recommendation. It was wrong. The agent later corrected itself. But if that conversation had ended one message earlier, the wrong architecture would have shipped.",
     readTime: "8 min read",
     content: `Last week, a systems engineer shared a conversation with us. They were designing a container security architecture. The AI agent they were working with made a critical architectural recommendation. It was wrong. The agent later corrected itself. But here's the part that matters: **if that conversation had ended one message earlier, the wrong architecture would have shipped.**
 

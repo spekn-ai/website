@@ -8,6 +8,9 @@ function init() {
   if (op) return;
   op = new OpenPanel({
     clientId: import.meta.env.VITE_OPENPANEL_CLIENT_ID,
+    ...(import.meta.env.VITE_OPENPANEL_API_URL && {
+      apiUrl: import.meta.env.VITE_OPENPANEL_API_URL,
+    }),
     trackScreenViews: true,
     trackOutgoingLinks: true,
     trackAttributes: true,

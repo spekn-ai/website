@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { onConsentAccepted } from "../lib/analytics";
 
 const STORAGE_KEY = "spekn-cookie-consent";
 
@@ -15,6 +16,7 @@ export function CookieBanner() {
 
   function handleChoice(choice: "accepted" | "rejected") {
     localStorage.setItem(STORAGE_KEY, choice);
+    if (choice === "accepted") onConsentAccepted();
     setVisible(false);
   }
 

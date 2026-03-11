@@ -44,6 +44,9 @@ export function Footer() {
             <p className="mt-4 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
               Spec-driven development for teams building with AI coding agents.
             </p>
+            <p className="mt-3 font-body text-sm text-slate dark:text-gray-500">
+              Sales and partnerships: <a href="mailto:contact@spekn.com" className="text-indigo underline hover:text-indigo/80">contact@spekn.com</a>
+            </p>
           </div>
           {footerLinks.map((group) => (
             <div key={group.title}>

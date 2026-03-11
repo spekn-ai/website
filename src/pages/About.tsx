@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Target, Lightbulb, BookOpen } from "lucide-react";
+import { Target, Lightbulb, BookOpen, Mail, Rocket, ShieldCheck } from "lucide-react";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { FeatureCard } from "@/components/FeatureCard";
 import { Seo } from "@/components/Seo";
@@ -34,9 +34,37 @@ export function About() {
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
             About <span className="gradient-text">Spekn</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            The context continuity layer for AI coding workflows.
+          <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-gray-400">
+            Spekn is building the workflow layer that keeps specs, coding agents, CI, and pull requests aligned over time.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-16 dark:bg-charcoal-light">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="section-reveal grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-gray-200 bg-ghost/70 p-6 dark:border-gray-800 dark:bg-charcoal/50">
+              <Rocket size={20} className="text-indigo" />
+              <h2 className="mt-4 font-brand text-lg font-bold">Built for AI-assisted delivery</h2>
+              <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Spekn is designed for engineering teams using coding agents in real delivery workflows, not toy demos.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-ghost/70 p-6 dark:border-gray-800 dark:bg-charcoal/50">
+              <ShieldCheck size={20} className="text-indigo" />
+              <h2 className="mt-4 font-brand text-lg font-bold">Grounded in governance</h2>
+              <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                The product is shaped around alignment, traceability, deployment control, and operational trust from day one.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-ghost/70 p-6 dark:border-gray-800 dark:bg-charcoal/50">
+              <Mail size={20} className="text-indigo" />
+              <h2 className="mt-4 font-brand text-lg font-bold">Founder-led conversations</h2>
+              <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                If you&apos;re evaluating Spekn for your team, you can reach us directly at <a href="mailto:contact@spekn.com" className="text-indigo underline hover:text-indigo/80">contact@spekn.com</a>.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -169,8 +197,14 @@ export function About() {
             <p className="mx-auto mt-4 max-w-xl font-body text-lg text-gray-400">
               We're building in public. Follow our journey and get early access.
             </p>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4">
               <WaitlistForm />
+              <a
+                href="mailto:contact@spekn.com?subject=Spekn%20sales%20inquiry"
+                className="font-body text-sm font-medium text-indigo underline hover:text-indigo/80"
+              >
+                Prefer a direct conversation? Email contact@spekn.com
+              </a>
             </div>
           </div>
         </div>

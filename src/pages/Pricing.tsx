@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { PricingCard } from "@/components/PricingCard";
 import { WaitlistForm } from "@/components/WaitlistForm";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Mail } from "lucide-react";
 import { Seo } from "@/components/Seo";
 
 function useSectionReveal() {
@@ -74,6 +74,23 @@ export function Pricing() {
 
       <section className="bg-ghost py-24 dark:bg-charcoal">
         <div className="mx-auto max-w-6xl px-6">
+          <div className="section-reveal mb-10 grid gap-4 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-charcoal-light md:grid-cols-[1.3fr_1fr] md:items-center">
+            <div>
+              <h2 className="font-brand text-2xl font-extrabold">Need a rollout plan, security review, or enterprise deployment discussion?</h2>
+              <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Talk directly with us about pilot scope, self-hosting, procurement, or how Spekn fits your existing engineering workflow.
+              </p>
+            </div>
+            <div className="flex flex-col items-start gap-3 md:items-end">
+              <a
+                href="mailto:contact@spekn.com?subject=Spekn%20enterprise%20inquiry"
+                className="inline-flex items-center gap-2 rounded-xl border border-indigo/30 bg-indigo/5 px-5 py-3 font-body text-sm font-medium text-indigo transition-colors hover:bg-indigo/10"
+              >
+                <Mail size={16} /> Contact Sales
+              </a>
+              <p className="font-body text-xs text-slate/70 dark:text-gray-500">Typical topics: pilots, enterprise features, deployment modes, and pricing.</p>
+            </div>
+          </div>
           <div className="section-reveal grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <PricingCard
               name="Free"

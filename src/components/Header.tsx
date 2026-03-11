@@ -72,6 +72,12 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-4 md:flex">
+          <a
+            href="mailto:contact@spekn.com?subject=Spekn%20sales%20inquiry"
+            className="font-body text-sm font-medium text-slate transition-colors hover:text-indigo dark:text-gray-400"
+          >
+            Talk to Sales
+          </a>
           <button
             onClick={toggleDark}
             className="rounded-lg p-2 text-slate transition-colors hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-charcoal-light"
@@ -117,6 +123,12 @@ export function Header() {
               {dark ? <Sun size={16} /> : <Moon size={16} />}
               {dark ? "Light mode" : "Dark mode"}
             </button>
+            <a
+              href="mailto:contact@spekn.com?subject=Spekn%20sales%20inquiry"
+              className="font-body text-sm font-medium text-slate hover:text-indigo dark:text-gray-400"
+            >
+              Talk to Sales
+            </a>
             <a href="#waitlist" className="glow-button mt-2 text-center text-sm">
               Join Early Access
             </a>

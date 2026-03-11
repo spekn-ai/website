@@ -51,6 +51,15 @@ export function Home() {
 
       <section className="bg-white py-8 dark:bg-charcoal-light">
         <div className="mx-auto max-w-6xl px-6">
+          <div className="section-reveal mb-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center md:justify-start md:text-left">
+            <span className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-slate/70 dark:text-gray-500">Built for engineering teams using Claude Code, Codex, Cursor, Gemini, and MCP-based workflows</span>
+            <a
+              href="mailto:contact@spekn.com?subject=Spekn%20sales%20inquiry"
+              className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo transition-colors hover:text-indigo/80"
+            >
+              Talk to sales →
+            </a>
+          </div>
           <div className="section-reveal grid gap-4 rounded-2xl border border-gray-200 bg-ghost/70 p-6 text-center dark:border-gray-800 dark:bg-charcoal/60 md:grid-cols-3 md:text-left">
             <div>
               <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Write and manage specs</p>
@@ -138,7 +147,7 @@ export function Home() {
               </div>
               <h3 className="font-brand text-xl font-bold">Feed</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Stop restating constraints. Inject the same structured context every run.
+                Generate task-ready context from the spec instead of rebuilding it in every session.
               </p>
             </div>
 
@@ -148,7 +157,7 @@ export function Home() {
               </div>
               <h3 className="font-brand text-xl font-bold">Run</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Execute tasks against spec anchors so decisions don&apos;t get overwritten.
+                Orchestrate coding work against clear requirements, anchors, and acceptance criteria.
               </p>
             </div>
 
@@ -158,7 +167,7 @@ export function Home() {
               </div>
               <h3 className="font-brand text-xl font-bold">Capture</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Persist decisions and evidence so the next session starts informed.
+                Persist decisions, evidence, and context updates so the next run starts from the truth.
               </p>
             </div>
           </div>

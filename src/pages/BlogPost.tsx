@@ -59,9 +59,15 @@ export function BlogPost() {
             <span>&middot;</span>
             <span>{post.readTime}</span>
           </div>
-          <h1 className="mt-4 font-brand text-3xl font-extrabold text-white md:text-5xl">
+          <p className="mt-4 font-body text-sm font-semibold uppercase tracking-[0.16em] text-indigo-light/90">
+            Spekn Journal
+          </p>
+          <h1 className="mt-3 font-brand text-3xl font-extrabold text-white md:text-5xl">
             {post.title}
           </h1>
+          <p className="mt-4 max-w-2xl font-body text-base leading-relaxed text-gray-400">
+            For teams moving from solo AI coding workflows to more durable, governed software delivery.
+          </p>
         </div>
       </section>
 

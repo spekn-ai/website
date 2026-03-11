@@ -64,8 +64,8 @@ export function RepoChecker() {
   return (
     <div ref={containerRef}>
       <Seo
-        title="Repo Checker | Spekn Context Health Check"
-        description="Run Spekn Check to detect context drift, reintroduced assumptions, and invalid spec anchors across specs, instructions, and code."
+        title="Repo Checker | Spekn"
+        description="Run Spekn Check to see where solo-first AI coding workflows are breaking down. Detect context drift, reintroduced assumptions, and weak traceability across specs, instructions, and code."
         path="/repo-checker"
       />
       {/* Hero */}
@@ -75,10 +75,10 @@ export function RepoChecker() {
             <Terminal size={28} />
           </div>
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
-            Run a <span className="gradient-text">context health check</span>
+            See where solo AI workflows stop working for teams
           </h1>
           <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-gray-400">
-            One command to see where specs, instructions, and code are drifting apart — before those mismatches turn into rework.
+            Run one command to find where specs, instructions, decisions, and code are drifting apart — before those gaps turn into team-wide rework.
           </p>
           <div className="mt-10 inline-flex items-center gap-3 rounded-xl bg-white/5 px-6 py-4 font-mono text-sm text-white">
             <span className="text-green-400">$</span>
@@ -141,10 +141,10 @@ export function RepoChecker() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="section-reveal text-center">
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              Five Signals. One Context Health Score.
+              Five signals that reveal whether your workflow can scale beyond one developer
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-charcoal/80 dark:text-gray-300">
-              Each signal is scored 0-100 and combined into a weighted Context Health Score.
+            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-charcoal/80 dark:text-gray-300">
+              Each signal is scored 0-100 and combined into a Context Health Score that helps teams understand where continuity and traceability are still weak.
             </p>
           </div>
           <div className="section-reveal mx-auto mt-8 max-w-3xl">
@@ -219,7 +219,7 @@ export function RepoChecker() {
               </div>
               <h4 className="mt-4 font-brand text-base font-bold">3. Get your score</h4>
               <p className="mt-2 font-body text-sm text-slate dark:text-gray-400">
-                Receive a detailed breakdown with actionable fixes to reduce repeated instructions and prevent decision overwrite.
+                Receive a detailed breakdown with actionable fixes to reduce repeated instructions, improve handoffs, and prevent decision overwrite.
               </p>
             </div>
           </div>
@@ -336,7 +336,7 @@ export function RepoChecker() {
               </button>
             </div>
             <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-              Run the free check today, then join early access if you want continuous alignment across specs, agents, CI, and pull requests.
+              Run the free check today, then join early access if you want to move from local AI coding workflows to team-wide continuity across onboarding, specs, agents, CI, and pull requests.
             </p>
             <div className="mt-8 flex justify-center">
               <WaitlistForm />

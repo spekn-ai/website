@@ -17,10 +17,10 @@ const footerLinks = [
     ],
   },
   {
-    title: "Methodology",
+    title: "Approach",
     links: [
-      { to: "/features", label: "Spec-Driven Development" },
-      { to: "/features", label: "Feed / Run / Capture" },
+      { to: "/features", label: "Team continuity" },
+      { to: "/features", label: "Organize / Run / Govern" },
     ],
   },
   {

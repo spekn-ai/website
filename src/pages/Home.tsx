@@ -139,6 +139,9 @@ export function Home() {
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
               Feed. Run. <span className="gradient-text">Capture.</span>
             </h2>
+            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
+              This is the operating loop: organize the right context, execute work across agents and stages, then keep the decisions and evidence the team will need later.
+            </p>
           </div>
           <div className="section-reveal mt-16 grid gap-6 md:grid-cols-3">
             <div className="glass-card relative">
@@ -312,6 +315,35 @@ export function Home() {
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
                 Add auditability, controls, and governance once the workflow proves its value across teams.
               </p>
+            </div>
+          </div>
+
+          <div className="section-reveal mt-10 overflow-hidden rounded-2xl border border-gray-200 bg-white dark:border-gray-800 dark:bg-charcoal-light">
+            <div className="grid gap-0 md:grid-cols-3">
+              <div className="border-b border-gray-200 p-6 dark:border-gray-800 md:border-r md:border-b-0">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo">Before Spekn</p>
+                <ul className="mt-4 space-y-2 font-body text-sm text-slate dark:text-gray-400">
+                  <li>Scattered specs and prompt files</li>
+                  <li>Agent context depends on who runs it</li>
+                  <li>New hires reconstruct tribal knowledge</li>
+                </ul>
+              </div>
+              <div className="border-b border-gray-200 p-6 dark:border-gray-800 md:border-r md:border-b-0">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo">With Spekn</p>
+                <ul className="mt-4 space-y-2 font-body text-sm text-slate dark:text-gray-400">
+                  <li>Organized specs and shared context</li>
+                  <li>Multi-agent workflows tied to the same foundation</li>
+                  <li>Onboarding starts from approved decisions</li>
+                </ul>
+              </div>
+              <div className="p-6">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo">Outcome</p>
+                <ul className="mt-4 space-y-2 font-body text-sm text-slate dark:text-gray-400">
+                  <li>Less drift across local dev, CI, and PR</li>
+                  <li>Better traceability and governance</li>
+                  <li>A workflow that survives beyond the POC</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

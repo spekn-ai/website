@@ -140,6 +140,23 @@ export function Features() {
 
       <section className="bg-white py-24 dark:bg-charcoal-light">
         <div className="mx-auto max-w-7xl px-6">
+          <div className="section-reveal mb-10 rounded-2xl border border-gray-200 bg-ghost/70 p-6 dark:border-gray-800 dark:bg-charcoal/50">
+            <h2 className="font-brand text-2xl font-extrabold">What this looks like in practice</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-charcoal-light">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo">Spec</p>
+                <p className="mt-2 font-mono text-xs text-slate dark:text-gray-400">checkout.rq.4 → retry policy = 5</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-charcoal-light">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo">Decision</p>
+                <p className="mt-2 font-mono text-xs text-slate dark:text-gray-400">ADR-014 → JWT over session tokens</p>
+              </div>
+              <div className="rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-charcoal-light">
+                <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo">Gate</p>
+                <p className="mt-2 font-mono text-xs text-slate dark:text-gray-400">PR blocked until verification evidence is attached</p>
+              </div>
+            </div>
+          </div>
           <div className="section-reveal grid items-center gap-16 md:grid-cols-2">
             <div>
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo/10 text-indigo">

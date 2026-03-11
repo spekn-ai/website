@@ -65,7 +65,7 @@ export function AnimatedHero() {
         </div>
 
         {/* Terminal preview */}
-        <div className="mt-16 w-full max-w-2xl">
+        <div className="mt-16 grid w-full max-w-5xl gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="overflow-hidden rounded-xl border border-gray-800 bg-charcoal-light shadow-2xl shadow-indigo/10">
             <div className="flex items-center gap-2 border-b border-gray-800 px-4 py-3">
               <span className="h-3 w-3 rounded-full bg-red-500/60" />
@@ -91,6 +91,28 @@ export function AnimatedHero() {
               {visibleLines < terminalLines.length && (
                 <span className="inline-block h-4 w-2 animate-pulse bg-indigo" />
               )}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-indigo/20 bg-white/5 p-5 text-left shadow-2xl shadow-indigo/10 backdrop-blur-sm">
+            <p className="font-body text-xs font-semibold uppercase tracking-[0.16em] text-indigo-light/90">What Spekn leaves behind</p>
+            <div className="mt-4 space-y-3 font-mono text-xs text-gray-300">
+              <div className="artifact-card">
+                <p className="text-indigo-light">SPEC</p>
+                <p>checkout.rq.4 → retry policy = 5</p>
+              </div>
+              <div className="artifact-card">
+                <p className="text-indigo-light">DECISION</p>
+                <p>ADR-014 → JWT over session tokens</p>
+              </div>
+              <div className="artifact-card">
+                <p className="text-indigo-light">GATE</p>
+                <p>PR blocked: missing verification for checkout.rq.4</p>
+              </div>
+              <div className="artifact-card">
+                <p className="text-indigo-light">ONBOARDING</p>
+                <p>New engineer starts from approved context, not tribal memory</p>
+              </div>
             </div>
           </div>
         </div>

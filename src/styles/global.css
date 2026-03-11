@@ -45,6 +45,10 @@
     @apply rounded-2xl border border-indigo/10 bg-white/80 p-6 backdrop-blur-md dark:border-indigo/20 dark:bg-charcoal-light/80;
   }
 
+  .artifact-card {
+    @apply rounded-lg border border-white/10 bg-black/10 px-3 py-2;
+  }
+
   .section-reveal {
     opacity: 0;
     transform: translateY(24px);

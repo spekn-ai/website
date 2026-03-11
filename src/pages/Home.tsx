@@ -49,17 +49,52 @@ export function Home() {
       />
       <AnimatedHero />
 
+      <section className="bg-white py-8 dark:bg-charcoal-light">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="section-reveal grid gap-4 rounded-2xl border border-gray-200 bg-ghost/70 p-6 text-center dark:border-gray-800 dark:bg-charcoal/60 md:grid-cols-3 md:text-left">
+            <div>
+              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Write and manage specs</p>
+              <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">
+                Keep requirements, constraints, and decisions in one working source of truth.
+              </p>
+            </div>
+            <div>
+              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Generate AI-ready context</p>
+              <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">
+                Give coding agents the right context for the task instead of repeating it by hand.
+              </p>
+            </div>
+            <div>
+              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Orchestrate execution</p>
+              <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">
+                Keep local development, CI, and pull requests aligned with the same spec-driven workflow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="relative overflow-hidden bg-ghost py-24 dark:bg-charcoal">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <div className="section-reveal">
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">AI Agents Are Fast. Alignment Is Not.</h2>
             <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
-              Local sessions reset. CI runs start from partial context. PR validators enforce rules without full decision
-              history. Teams repeat instructions and recover intent from artifacts instead of verifying outcomes.
+              Local sessions reset. CI starts from partial context. Pull requests are reviewed without the full decision history.
+              Teams waste time repeating instructions instead of shipping.
             </p>
-            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
-              The problem is context drift and assumption reintroduction.
-            </p>
+            <ul className="mx-auto mt-8 grid max-w-3xl gap-3 text-left sm:grid-cols-2">
+              {[
+                "Less drift between specs and code",
+                "Fewer repeated prompts and corrections",
+                "Clearer handoffs between humans and agents",
+                "Better traceability from requirement to verification",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 font-body text-base text-slate dark:text-gray-400">
+                  <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -137,10 +172,11 @@ export function Home() {
               <Terminal size={28} />
             </div>
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              How healthy is your <span className="gradient-text">context</span>?
+              Start with the wedge: the free <span className="gradient-text">Repo Checker</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
-              One command. No signup. Instant context health check and drift detection.
+            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
+              Before asking a team to change its workflow, show them the problem. Run one command to find context drift,
+              weak traceability, and missing decision records in any repository.
             </p>
           </div>
 
@@ -242,27 +278,30 @@ export function Home() {
       </section>
 
       <section className="bg-ghost py-24 dark:bg-charcoal">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <div className="section-reveal text-center">
-            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">Start Solo. Scale With Confidence.</h2>
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">Grow from one repo to team-wide governance.</h2>
+            <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
+              Start with a single repository check. Then move into shared specs, aligned agent execution, and policy-backed delivery as adoption grows.
+            </p>
           </div>
           <div className="section-reveal mt-16 grid gap-6 md:grid-cols-3">
             <div className="glass-card">
-              <h3 className="font-brand text-xl font-bold">Personal Clarity</h3>
+              <h3 className="font-brand text-xl font-bold">1. Diagnose</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Solo continuity. Fewer repeated instructions. Decisions persist from one session to the next.
+                Use Repo Checker to surface drift, weak traceability, and missing decision continuity in minutes.
               </p>
             </div>
             <div className="glass-card">
-              <h3 className="font-brand text-xl font-bold">Team Coherence</h3>
+              <h3 className="font-brand text-xl font-bold">2. Align</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Shared spec graph + CI/PR continuity. Fewer overwritten decisions across contributors.
+                Turn specs into shared context for humans, coding agents, CI, and pull requests.
               </p>
             </div>
             <div className="glass-card">
-              <h3 className="font-brand text-xl font-bold">Organizational Governance</h3>
+              <h3 className="font-brand text-xl font-bold">3. Scale</h3>
               <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Governance at scale: audit exports, multi-repo controls, and traceable runs with verification evidence.
+                Add auditability, controls, and governance once the workflow proves its value across teams.
               </p>
             </div>
           </div>

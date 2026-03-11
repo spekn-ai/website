@@ -42,7 +42,7 @@ export function Footer() {
               <span className="font-brand text-xl font-bold">spekn</span>
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-              The context backbone for AI-first teams.
+              Spec-driven development for teams building with AI coding agents.
             </p>
           </div>
           {footerLinks.map((group) => (

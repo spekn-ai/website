@@ -42,8 +42,8 @@ export function Home() {
   return (
     <div ref={containerRef}>
       <Seo
-        title="Spekn — AI Coding Sessions Reset. Decisions Shouldn't."
-        description="Stop repeating constraints to AI every session. Spekn keeps specs and decisions persistent so old assumptions are not reintroduced across local sessions, CI, and PR."
+        title="Spekn — Specs as the Source of Truth for AI-Assisted Development"
+        description="Spekn is a spec-driven development platform that helps teams write and manage specs, generate AI-ready context, and orchestrate coding agents across local development, CI, and pull requests."
         path="/"
         jsonLd={jsonLd}
       />
@@ -69,8 +69,8 @@ export function Home() {
           <div className="section-reveal text-center">
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">One Source of Truth for Every Agent</h2>
             <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
-              Spekn turns specs into persistent intent. Decisions don&apos;t reset across sessions because each run is tied to
-              spec anchors, decision records, and verification evidence.
+              Spekn turns specs into a working source of truth for humans and agents. Every run stays grounded in the same
+              requirements, decisions, and verification evidence.
             </p>
             <ul className="mx-auto mt-8 grid max-w-3xl gap-3 text-left">
               {[
@@ -273,14 +273,20 @@ export function Home() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="section-reveal">
             <h2 className="font-brand text-3xl font-extrabold text-white md:text-4xl">
-              Sessions Reset. Decisions Don&apos;t Have To.
+              Keep specs, agents, and code aligned from first prompt to merged PR.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl font-body text-lg text-gray-400">
-              Keep persistent intent across local sessions, CI, and PR validators.
+            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray-400">
+              Join early access for Spekn, or run the free repo checker today to see where context drift is already slowing your team down.
             </p>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link to="/pricing" className="glow-button inline-flex items-center justify-center">
-                Start Free
+                Join Early Access
+              </Link>
+              <Link
+                to="/repo-checker"
+                className="inline-flex items-center justify-center rounded-xl border border-indigo/40 px-8 py-4 font-brand text-base font-bold text-indigo-light transition-colors hover:bg-white/5"
+              >
+                Run Repo Checker
               </Link>
             </div>
           </div>

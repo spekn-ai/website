@@ -46,9 +46,13 @@ export function WaitlistForm() {
       <div className="flex w-full gap-3">
         <input
           type="email"
+          name="email"
+          autoComplete="email"
+          aria-label="Work email"
+          spellCheck={false}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@company.com"
+          placeholder="you@company.com…"
           required
           disabled={status === "loading"}
           className="flex-1 rounded-xl border border-gray-300 bg-white px-4 py-3 font-body text-sm outline-none transition-all focus:border-indigo focus:ring-2 focus:ring-indigo/20 disabled:opacity-60 dark:border-gray-700 dark:bg-charcoal-light dark:text-white"
@@ -62,7 +66,7 @@ export function WaitlistForm() {
             <Loader2 size={16} className="animate-spin" />
           ) : (
             <>
-              Join <ArrowRight size={16} />
+              Join Early Access <ArrowRight size={16} />
             </>
           )}
         </button>

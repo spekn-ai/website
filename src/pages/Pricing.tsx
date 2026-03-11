@@ -44,8 +44,8 @@ export function Pricing() {
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
             Simple, transparent <span className="gradient-text">pricing</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            No AI credits. No compute markup. You pay for infrastructure that prevents context drift and decision overwrite across the pipeline.
+          <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-gray-400">
+            No AI credits. No compute markup. Pay for the workflow layer that keeps specs, agents, CI, and pull requests aligned as your team ships.
           </p>
 
           {/* Billing toggle */}
@@ -77,7 +77,7 @@ export function Pricing() {
           <div className="section-reveal grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <PricingCard
               name="Free"
-              description="Free = personal clarity and solo continuity"
+              description="For evaluating Spekn and improving solo AI workflows"
               features={[
                 "1 project",
                 "Scoped Spekn Bridge (UI workflows)",
@@ -85,13 +85,13 @@ export function Pricing() {
                 "Persistent decision records",
                 "CLI tools",
               ]}
-              cta="Start Free"
+              cta="Join Early Access"
             />
             <PricingCard
               name="Pro"
               monthlyPrice={49}
               period="user/mo"
-              description="For serious solo workflows and reliable agent execution"
+              description="For engineers running serious AI-assisted development workflows"
               annual={annual}
               features={[
                 "Unlimited projects",
@@ -106,7 +106,7 @@ export function Pricing() {
               name="Team"
               monthlyPrice={99}
               period="user/mo"
-              description="Team = coordination with shared spec graph + CI/PR"
+              description="For teams that need shared specs, aligned agent execution, and CI/PR continuity"
               popular
               annual={annual}
               features={[
@@ -121,7 +121,7 @@ export function Pricing() {
             <PricingCard
               name="Enterprise"
               customPrice="Custom"
-              description="Enterprise = governance at scale across many repos"
+              description="For organizations that need deployment control, auditability, and policy at scale"
               features={[
                 "Everything in Team",
                 "Cloud, Dedicated, or Self-hosted",
@@ -178,8 +178,8 @@ export function Pricing() {
             <h2 className="font-brand text-3xl font-extrabold text-white">
               Ready to get started?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl font-body text-lg text-gray-400">
-              Join the waitlist and keep persistent intent across local sessions, CI, and PR validators.
+            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray-400">
+              Join early access to keep specs, agents, and pull requests aligned without repeating the same context in every session.
             </p>
             <div className="mt-10 flex justify-center">
               <WaitlistForm />

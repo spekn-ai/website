@@ -35,23 +35,31 @@ export function AnimatedHero() {
             </span>
           </div>
 
-          <h1 className="font-brand text-5xl font-extrabold leading-tight tracking-tight text-white md:text-7xl">
-            AI Coding Sessions Reset. Your Decisions Shouldn&apos;t.
+          <p className="mx-auto max-w-3xl font-body text-sm font-semibold uppercase tracking-[0.18em] text-indigo-light/90">
+            Spec-Driven Development for AI-Assisted Software Teams
+          </p>
+
+          <h1 className="mt-4 font-brand text-5xl font-extrabold leading-tight tracking-tight text-white md:text-7xl">
+            Specs become the source of truth for AI-assisted development.
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl font-body text-lg leading-relaxed text-gray-400 md:text-xl">
-            Spekn makes specs and decisions persistent so assumptions are not reintroduced across local sessions, CI, and PR validation.
+          <p className="mx-auto mt-6 max-w-3xl font-body text-lg leading-relaxed text-gray-300 md:text-xl">
+            Write and manage specs, generate AI-ready context, and orchestrate coding agents across local development, CI, and pull requests.
+          </p>
+
+          <p className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed text-gray-400 md:text-lg">
+            AI coding sessions reset. Your decisions shouldn&apos;t.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link to="/pricing" className="glow-button inline-flex items-center justify-center !px-8 !py-4 text-base">
-              Start Free
+              Join Early Access
             </Link>
             <Link
               to="/repo-checker"
               className="inline-flex items-center justify-center rounded-xl border border-indigo/40 px-8 py-4 font-brand text-base font-bold text-indigo-light transition-colors hover:bg-white/5"
             >
-              Run npx @spekn/check
+              Run Repo Checker
             </Link>
           </div>
         </div>

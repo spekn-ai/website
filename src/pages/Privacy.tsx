@@ -23,14 +23,12 @@ export function Privacy() {
             1. Data Controller
           </h2>
           <p className="mt-3">
-            The data controller for this website is
-            <strong> Jean-Baptiste Pin (individual)</strong>, reachable at
-            contact@spekn.com
+            The data controller for this website is <strong>Jean-Baptiste Pin (individual)</strong>, reachable at{" "}
             <a
-              href="mailto:[contact@spekn.com]"
+              href="mailto:contact@spekn.com"
               className="text-indigo underline hover:text-indigo/80"
             >
-              [contact@spekn.com]
+              contact@spekn.com
             </a>
             .
           </p>
@@ -156,10 +154,10 @@ export function Privacy() {
           <p className="mt-3">
             To exercise any of these rights, contact us at{" "}
             <a
-              href="mailto:[contact@spekn.com]"
+              href="mailto:contact@spekn.com"
               className="text-indigo underline hover:text-indigo/80"
             >
-              [contact@spekn.com]
+              contact@spekn.com
             </a>
             . We will respond within 30 days.
           </p>
@@ -171,15 +169,12 @@ export function Privacy() {
             8. Cookies
           </h2>
           <p className="mt-3">
-            This website currently uses only <strong>essential cookies</strong>{" "}
-            required for the site to function (e.g., cookie consent preference
-            stored in localStorage). We do not use analytics or tracking cookies
-            at this time.
+            This website uses <strong>essential local storage</strong> required for the site to function, such as saving your
+            cookie consent preference.
           </p>
           <p className="mt-2">
-            If we introduce non-essential cookies in the future (e.g.,
-            analytics), we will update this policy and request your consent via
-            our cookie banner before setting them.
+            If you accept analytics in our cookie banner, we also enable optional analytics to understand how visitors use
+            the site. Those analytics are not enabled until consent is given.
           </p>
         </div>
 

@@ -83,7 +83,7 @@ export function Header() {
             href="#waitlist"
             className="glow-button !rounded-lg !px-5 !py-2.5 text-sm"
           >
-            Join Waitlist
+            Join Early Access
           </a>
         </div>
 
@@ -118,7 +118,7 @@ export function Header() {
               {dark ? "Light mode" : "Dark mode"}
             </button>
             <a href="#waitlist" className="glow-button mt-2 text-center text-sm">
-              Join Waitlist
+              Join Early Access
             </a>
           </nav>
         </div>

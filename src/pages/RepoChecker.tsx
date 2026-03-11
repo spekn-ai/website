@@ -77,8 +77,8 @@ export function RepoChecker() {
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
             Run a <span className="gradient-text">context health check</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            One command to catch context drift, assumption reintroduction, and spec anchor validity issues.
+          <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-gray-400">
+            One command to see where specs, instructions, and code are drifting apart — before those mismatches turn into rework.
           </p>
           <div className="mt-10 inline-flex items-center gap-3 rounded-xl bg-white/5 px-6 py-4 font-mono text-sm text-white">
             <span className="text-green-400">$</span>
@@ -335,8 +335,8 @@ export function RepoChecker() {
                 Copy
               </button>
             </div>
-            <p className="mx-auto mt-6 max-w-xl font-body text-lg text-gray-400">
-              Start on the Spekn Free plan for ongoing context alignment checks as your agent workflows scale.
+            <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
+              Run the free check today, then join early access if you want continuous alignment across specs, agents, CI, and pull requests.
             </p>
             <div className="mt-8 flex justify-center">
               <WaitlistForm />

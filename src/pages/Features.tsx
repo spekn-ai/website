@@ -29,17 +29,17 @@ export function Features() {
     <div ref={containerRef}>
       <Seo
         title="Features | Spekn"
-        description="Explore persistence, continuity, and verification: versioned specs, decision records, spec anchors, and traceable runs across local sessions, CI, and PR."
+        description="Explore how Spekn helps teams write and manage specs, generate AI-ready context, and keep coding agents aligned across local development, CI, and pull requests."
         path="/features"
       />
       {/* Hero */}
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
-            Build with a <span className="gradient-text">Persistent Intent Layer</span>
+            Write specs once. Keep every agent aligned.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl font-body text-lg text-gray-400">
-            Sessions reset. Decisions should not. Spekn keeps versioned specs, decision records, and verification evidence connected across every run.
+          <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-gray-400">
+            Spekn helps teams manage specs, generate AI-ready context, and keep coding work aligned across local development, CI, and pull requests.
           </p>
         </div>
       </section>

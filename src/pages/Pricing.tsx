@@ -36,7 +36,7 @@ export function Pricing() {
     <div ref={containerRef}>
       <Seo
         title="Pricing | Spekn"
-        description="Compare Spekn plans for solo, team, and enterprise continuity. Prevent context drift and decision overwrite with persistent specs, traceable runs, and verification evidence."
+        description="Compare Spekn plans for solo engineers, teams, and enterprises building with AI coding agents. Keep specs, agents, CI, and pull requests aligned."
         path="/pricing"
       />
       <section className="bg-charcoal py-32">
@@ -176,7 +176,7 @@ export function Pricing() {
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="section-reveal">
             <h2 className="font-brand text-3xl font-extrabold text-white">
-              Ready to get started?
+              Ready to keep specs, agents, and pull requests aligned?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray-400">
               Join early access to keep specs, agents, and pull requests aligned without repeating the same context in every session.

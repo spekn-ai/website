@@ -35,8 +35,7 @@ export function About() {
             About <span className="gradient-text">Spekn</span>
           </h1>
           <p className="mx-auto mt-6 max-w-4xl font-body text-lg text-gray-400">
-            Spekn is a platform for teams building software with AI agents — not just one developer working in one local environment.
-            We help teams organize specs, share the right context, orchestrate workflows, and add the governance needed to make AI-assisted delivery maintainable over time.
+            Spekn exists because AI-assisted software development is outgrowing solo workflows. Teams need more than local agent memory and scattered prompt files — they need organized specs, shared context, orchestration, and governance that hold up across onboarding, local development, CI, and pull requests.
           </p>
         </div>
       </section>
@@ -75,19 +74,18 @@ export function About() {
             <h2 className="font-brand text-3xl font-extrabold">Why Spekn Exists</h2>
             <div className="mt-8 space-y-6 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
               <p>
-                We built Spekn because most AI coding tools are optimized for solo developers working locally with short-lived context.
+                We built Spekn because the current AI coding stack is surprisingly fragile the moment more than one person depends on it.
               </p>
               <p>
-                That works for demos, experiments, and one-person flows. It breaks down when a team needs onboarding, shared understanding,
-                repeatability, and continuity across the full delivery workflow.
+                Most tools are optimized for a solo developer in one local environment, with one agent session, one memory layer, and one person holding the context together.
+                That is useful, but it is not a durable operating model for a team.
               </p>
               <p>
-                New hires struggle to find the right context. Agents inherit different instructions depending on who runs them. CI and pull requests
-                enforce rules without the full decision history. Teams repeat explanations instead of building momentum.
+                The cracks show up fast: new hires do not know which spec matters, agents inherit different instructions depending on who launched them,
+                CI runs without the full decision history, and pull requests get reviewed against partial context. Teams repeat themselves because the workflow does not remember what the team has already learned.
               </p>
               <p>
-                Spekn exists to give teams something more durable: organized specs, shared context, orchestration, governance, and gating that make
-                AI-assisted software delivery sustainable over time.
+                Spekn exists to close that gap. It gives teams something more durable: organized specs, shared context, orchestration, governance, and gating that turn AI-assisted development from an exciting capability into a maintainable way of shipping software.
               </p>
             </div>
           </div>
@@ -99,8 +97,7 @@ export function About() {
           <div className="section-reveal text-center">
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">The market gap we care about</h2>
             <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
-              The AI coding market has plenty of tools for personal speed. The harder problem is helping a team stay coherent as more people,
-              more agents, and more workflow stages get involved.
+              The AI coding market has plenty of tools for personal speed. The harder and more important problem is helping a team stay coherent as more people, more agents, and more workflow stages get involved.
             </p>
           </div>
           <div className="section-reveal mt-16 grid gap-8 md:grid-cols-2">
@@ -213,6 +210,9 @@ export function About() {
               </ul>
               <p>
                 That is the arc we care about: moving from isolated AI coding experiments to a maintainable, team-scale way of building software.
+              </p>
+              <p>
+                We do not think the future belongs to the team with the most prompt hacks. We think it belongs to the team that can keep context, decisions, and governance intact as AI becomes part of everyday delivery.
               </p>
               <p>
                 We use Spekn to build Spekn. The product is shaped by the same coordination, continuity, and trust problems we expect teams to solve with it.

@@ -86,17 +86,17 @@ export function Home() {
       <section className="relative overflow-hidden bg-ghost py-24 dark:bg-charcoal">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <div className="section-reveal">
-            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">AI Agents Are Fast. Alignment Is Not.</h2>
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">Most AI coding tools optimize solo flow. Teams need continuity.</h2>
             <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
               Local sessions reset. CI starts from partial context. Pull requests are reviewed without the full decision history.
-              Teams waste time repeating instructions instead of shipping.
+              Most tools stop at personal productivity, while teams still need onboarding, handoffs, governance, and repeatability.
             </p>
             <ul className="mx-auto mt-8 grid max-w-3xl gap-3 text-left sm:grid-cols-2">
               {[
-                "Less drift between specs and code",
-                "Fewer repeated prompts and corrections",
-                "Clearer handoffs between humans and agents",
-                "Better traceability from requirement to verification",
+                "Shared context across humans and agents",
+                "Faster onboarding with organized specs and decisions",
+                "Less drift between local development, CI, and PRs",
+                "A maintainable workflow that survives beyond the POC",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 font-body text-base text-slate dark:text-gray-400">
                   <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
@@ -111,17 +111,17 @@ export function Home() {
       <section className="bg-white py-24 dark:bg-charcoal-light">
         <div className="mx-auto max-w-5xl px-6">
           <div className="section-reveal text-center">
-            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">One Source of Truth for Every Agent</h2>
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">The same context should follow the work everywhere.</h2>
             <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
-              Spekn turns specs into a working source of truth for humans and agents. Every run stays grounded in the same
-              requirements, decisions, and verification evidence.
+              Spekn helps teams keep specs, decisions, and execution context aligned across onboarding, local development,
+              CI, and pull requests — not trapped inside one person&apos;s local setup.
             </p>
             <ul className="mx-auto mt-8 grid max-w-3xl gap-3 text-left">
               {[
-                "Versioned specs with stable spec anchors",
-                "Persistent decision records across runs",
-                "Traceable runs from local sessions + CI + PR validators",
-                "Verification evidence tied to acceptance criteria",
+                "Organized specs with stable structure and reusable context",
+                "Persistent decision records across runs and handoffs",
+                "Traceability from local sessions to CI and PR review",
+                "Governance and evidence as the workflow matures",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3 font-body text-base text-slate dark:text-gray-400">
                   <ArrowRight size={14} className="mt-1 shrink-0 text-indigo" />
@@ -181,11 +181,11 @@ export function Home() {
               <Terminal size={28} />
             </div>
             <h2 className="font-brand text-3xl font-extrabold md:text-4xl">
-              Start with the wedge: the free <span className="gradient-text">Repo Checker</span>
+              Start with proof: the free <span className="gradient-text">Repo Checker</span>
             </h2>
             <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
-              Before asking a team to change its workflow, show them the problem. Run one command to find context drift,
-              weak traceability, and missing decision records in any repository.
+              Before asking a team to change its workflow, show them where solo-first tooling is already breaking down.
+              Run one command to find drift, weak traceability, and missing continuity in any repository.
             </p>
           </div>
 
@@ -289,9 +289,9 @@ export function Home() {
       <section className="bg-ghost py-24 dark:bg-charcoal">
         <div className="mx-auto max-w-6xl px-6">
           <div className="section-reveal text-center">
-            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">Grow from one repo to team-wide governance.</h2>
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">Grow from one repository check to a team operating model.</h2>
             <p className="mx-auto mt-4 max-w-3xl font-body text-lg text-slate dark:text-gray-400">
-              Start with a single repository check. Then move into shared specs, aligned agent execution, and policy-backed delivery as adoption grows.
+              Start by diagnosing the problem. Then move into organized specs, shared context, multi-agent orchestration, and governance as the workflow becomes core to how your team ships.
             </p>
           </div>
           <div className="section-reveal mt-16 grid gap-6 md:grid-cols-3">

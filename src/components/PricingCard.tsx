@@ -86,7 +86,7 @@ export function PricingCard({
         ))}
       </ul>
       <a
-        href="#waitlist"
+        href={cta === "Contact Sales" ? "mailto:contact@spekn.com?subject=Spekn%20enterprise%20inquiry" : "#waitlist"}
         className={cn(
           "mt-8 block rounded-xl py-3 text-center font-brand text-sm font-bold transition-all",
           popular

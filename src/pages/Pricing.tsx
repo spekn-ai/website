@@ -20,9 +20,9 @@ function useSectionReveal() {
 }
 
 const faqs = [
-  { q: "What AI agents does Spekn support?", a: "Any agent that supports MCP — including Claude Code, Codex, Cursor, Gemini, and others. Spekn Bridge + MCP server keep context consistent across tools." },
+  { q: "What AI agents does Spekn support?", a: "Any agent that supports MCP — including Claude Code, Codex, Cursor, Gemini, and others. Spekn is designed for multi-agent team workflows, not just one local setup." },
   { q: "Do I need to rewrite my existing specs?", a: "No. Spekn imports AGENTS.md, Spec Kit, OpenSpec, .cursorrules, plain Markdown, and similar formats. Teams usually adopt incrementally, project by project." },
-  { q: "What is the spec graph?", a: "A persistent graph of versioned specs, spec anchors, decision records, and verification evidence. It reduces context drift across local sessions, CI runs, and pull requests." },
+  { q: "Why not just use local agent memory?", a: "Local memory helps one developer in one environment. Spekn is built for shared context across onboarding, local development, CI, and pull requests, with governance and traceability for the whole team." },
   { q: "Does Spekn charge for AI compute?", a: "No. Your agents run on your own keys, subscriptions, or local models. Spekn does not sell AI credits or add compute markup." },
   { q: "Can I self-host Spekn?", a: "Enterprise plans include three deployment modes: Spekn Cloud (managed), Dedicated cluster (single-tenant), and Self-hosted (your own infrastructure). Contact us for details." },
 ];
@@ -36,19 +36,19 @@ export function Pricing() {
     <div ref={containerRef}>
       <Seo
         title="Pricing | Spekn"
-        description="Compare Spekn plans for solo engineers, teams, and enterprises building with AI coding agents. Keep specs, agents, CI, and pull requests aligned."
+        description="Compare Spekn plans for teams building software with AI agents. Bring shared context, orchestration, governance, and long-term maintainability across onboarding, local development, CI, and pull requests."
         path="/pricing"
       />
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h1 className="font-brand text-4xl font-extrabold text-white md:text-6xl">
-            Simple, transparent <span className="gradient-text">pricing</span>
+            Pricing for teams moving beyond AI coding POCs
           </h1>
           <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-gray-400">
-            No AI credits. No compute markup. Pay for the workflow layer that keeps specs, agents, CI, and pull requests aligned as your team ships.
+            No AI credits. No compute markup. Pay for the platform that helps your team organize specs, share context,
+            orchestrate work, and add governance as AI-assisted delivery becomes part of how you actually ship.
           </p>
 
-          {/* Billing toggle */}
           <div className="mt-10 flex items-center justify-center gap-4">
             <span className={`font-body text-sm ${!annual ? "font-bold text-white" : "text-gray-400"}`}>
               Monthly
@@ -72,13 +72,38 @@ export function Pricing() {
         </div>
       </section>
 
+      <section className="bg-white py-16 dark:bg-charcoal-light">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="section-reveal grid gap-6 md:grid-cols-3">
+            <div className="rounded-2xl border border-gray-200 bg-ghost/70 p-6 dark:border-gray-800 dark:bg-charcoal/50">
+              <h2 className="font-brand text-lg font-bold">Start with one repo</h2>
+              <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Diagnose drift, weak context, and missing continuity before changing your team&apos;s workflow.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-ghost/70 p-6 dark:border-gray-800 dark:bg-charcoal/50">
+              <h2 className="font-brand text-lg font-bold">Scale to shared delivery</h2>
+              <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Move from local agent memory to shared specs, aligned execution, and team-wide context.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-gray-200 bg-ghost/70 p-6 dark:border-gray-800 dark:bg-charcoal/50">
+              <h2 className="font-brand text-lg font-bold">Add governance when it matters</h2>
+              <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
+                Bring in policy, deployment controls, and auditability as the workflow becomes business-critical.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-ghost py-24 dark:bg-charcoal">
         <div className="mx-auto max-w-6xl px-6">
           <div className="section-reveal mb-10 grid gap-4 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-charcoal-light md:grid-cols-[1.3fr_1fr] md:items-center">
             <div>
               <h2 className="font-brand text-2xl font-extrabold">Need a rollout plan, security review, or enterprise deployment discussion?</h2>
               <p className="mt-2 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-                Talk directly with us about pilot scope, self-hosting, procurement, or how Spekn fits your existing engineering workflow.
+                Talk directly with us about pilot scope, self-hosting, procurement, onboarding strategy, or how Spekn fits your engineering workflow.
               </p>
             </div>
             <div className="flex flex-col items-start gap-3 md:items-end">
@@ -88,13 +113,13 @@ export function Pricing() {
               >
                 <Mail size={16} /> Contact Sales
               </a>
-              <p className="font-body text-xs text-slate/70 dark:text-gray-500">Typical topics: pilots, enterprise features, deployment modes, and pricing.</p>
+              <p className="font-body text-xs text-slate/70 dark:text-gray-500">Typical topics: pilots, team rollout, deployment modes, procurement, and governance needs.</p>
             </div>
           </div>
           <div className="section-reveal grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <PricingCard
               name="Free"
-              description="For evaluating Spekn and improving solo AI workflows"
+              description="For diagnosing one repo and evaluating whether your team has a continuity problem"
               features={[
                 "1 project",
                 "Scoped Spekn Bridge (UI workflows)",
@@ -108,7 +133,7 @@ export function Pricing() {
               name="Pro"
               monthlyPrice={49}
               period="user/mo"
-              description="For engineers running serious AI-assisted development workflows"
+              description="For individual engineers establishing a more durable AI-assisted workflow"
               annual={annual}
               features={[
                 "Unlimited projects",
@@ -123,7 +148,7 @@ export function Pricing() {
               name="Team"
               monthlyPrice={99}
               period="user/mo"
-              description="For teams that need shared specs, aligned agent execution, and CI/PR continuity"
+              description="For teams that need shared specs, onboarding continuity, multi-agent orchestration, and CI/PR alignment"
               popular
               annual={annual}
               features={[
@@ -138,7 +163,7 @@ export function Pricing() {
             <PricingCard
               name="Enterprise"
               customPrice="Custom"
-              description="For organizations that need deployment control, auditability, and policy at scale"
+              description="For organizations that need deployment control, policy, auditability, and governed long-term AI-assisted delivery"
               features={[
                 "Everything in Team",
                 "Cloud, Dedicated, or Self-hosted",
@@ -155,7 +180,6 @@ export function Pricing() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="bg-white py-24 dark:bg-charcoal-light">
         <div className="mx-auto max-w-3xl px-6">
           <div className="section-reveal text-center">
@@ -188,15 +212,14 @@ export function Pricing() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-charcoal py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <div className="section-reveal">
             <h2 className="font-brand text-3xl font-extrabold text-white">
-              Ready to keep specs, agents, and pull requests aligned?
+              Ready to make AI-assisted delivery maintainable for your team?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-gray-400">
-              Join early access to keep specs, agents, and pull requests aligned without repeating the same context in every session.
+              Join early access to move beyond one-off local workflows and bring shared context, orchestration, and governance into the way your team ships.
             </p>
             <div className="mt-10 flex justify-center">
               <WaitlistForm />

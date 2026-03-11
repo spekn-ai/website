@@ -42,8 +42,8 @@ export function Home() {
   return (
     <div ref={containerRef}>
       <Seo
-        title="Spekn — Specs as the Source of Truth for AI-Assisted Development"
-        description="Spekn is a spec-driven development platform that helps teams write and manage specs, generate AI-ready context, and orchestrate coding agents across local development, CI, and pull requests."
+        title="Spekn — A Team Platform for AI-Assisted Software Delivery"
+        description="Spekn helps teams organize specs, manage shared context, orchestrate work across multiple AI agents, and add governance across onboarding, local development, CI, and pull requests."
         path="/"
         jsonLd={jsonLd}
       />
@@ -62,21 +62,21 @@ export function Home() {
           </div>
           <div className="section-reveal grid gap-4 rounded-2xl border border-gray-200 bg-ghost/70 p-6 text-center dark:border-gray-800 dark:bg-charcoal/60 md:grid-cols-3 md:text-left">
             <div>
-              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Write and manage specs</p>
+              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Organize team knowledge</p>
               <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">
-                Keep requirements, constraints, and decisions in one working source of truth.
+                Keep specs, constraints, and decisions structured so new hires, engineers, and agents start with the right context.
               </p>
             </div>
             <div>
-              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Generate AI-ready context</p>
+              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Coordinate across agents</p>
               <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">
-                Give coding agents the right context for the task instead of repeating it by hand.
+                Support multiple coding agents with shared context instead of isolated local memory and one-off prompts.
               </p>
             </div>
             <div>
-              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Orchestrate execution</p>
+              <p className="font-brand text-sm font-bold text-charcoal dark:text-white">Govern the workflow</p>
               <p className="mt-1 font-body text-sm text-slate dark:text-gray-400">
-                Keep local development, CI, and pull requests aligned with the same spec-driven workflow.
+                Add orchestration, gating, and policy across local development, CI, and pull requests so AI-assisted delivery lasts beyond the POC.
               </p>
             </div>
           </div>

@@ -26,7 +26,7 @@ export function About() {
     <div ref={containerRef}>
       <Seo
         title="About | Spekn"
-        description="Why Spekn exists: sessions reset and decisions drift. Spekn keeps persistent intent with versioned specs, spec anchors, and traceable runs."
+        description="Why Spekn exists: most AI coding tools are built for solo local workflows. Spekn is built for teams that need organized specs, shared context, orchestration, and governance over time."
         path="/about"
       />
       <section className="bg-charcoal py-32">
@@ -35,7 +35,7 @@ export function About() {
             About <span className="gradient-text">Spekn</span>
           </h1>
           <p className="mx-auto mt-6 max-w-3xl font-body text-lg text-gray-400">
-            Spekn is building the workflow layer that keeps specs, coding agents, CI, and pull requests aligned over time.
+            Spekn is a platform for teams that need organized specs, shared context, orchestration, and governance across onboarding, local development, CI, and pull requests.
           </p>
         </div>
       </section>
@@ -75,16 +75,16 @@ export function About() {
             <h2 className="font-brand text-3xl font-extrabold">Why Spekn Exists</h2>
             <div className="mt-8 space-y-6 font-body text-lg leading-relaxed text-slate dark:text-gray-400">
               <p>
-                We built Spekn because sessions reset and decisions drift when building with AI agents.
+                We built Spekn because most AI coding tools are optimized for solo developers working locally with short-lived context.
               </p>
               <p>
-                When context is fragmented, assumptions reappear and decisions get overwritten. Teams repeat constraints instead of moving work forward.
+                That works for demos, experiments, and one-person flows. It breaks down when a team needs onboarding, shared understanding, repeatability, and continuity across the whole delivery process.
               </p>
               <p>
-                Static instruction files help at first, then drift. Decisions become hard to find, and traces from one run rarely map cleanly to the next.
+                Context gets fragmented, assumptions reappear, and decisions are lost between local development, CI, and pull requests. Teams repeat explanations instead of building momentum.
               </p>
               <p>
-                Spekn keeps persistent intent across the full pipeline: versioned specs, spec anchors, decision records, and verification evidence tied to traceable runs.
+                Spekn gives teams a durable framework: organized specs, shared context, orchestration, governance, and gating that make AI-assisted software delivery maintainable over time.
               </p>
             </div>
           </div>

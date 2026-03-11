@@ -36,19 +36,19 @@ export function AnimatedHero() {
           </div>
 
           <p className="mx-auto max-w-3xl font-body text-sm font-semibold uppercase tracking-[0.18em] text-indigo-light/90">
-            Spec-Driven Development for AI-Assisted Software Teams
+            Built for teams, not just solo flow
           </p>
 
           <h1 className="mt-4 font-brand text-5xl font-extrabold leading-tight tracking-tight text-white md:text-7xl">
-            Specs become the source of truth for AI-assisted development.
+            A platform for teams building software with AI agents.
           </h1>
 
           <p className="mx-auto mt-6 max-w-3xl font-body text-lg leading-relaxed text-gray-300 md:text-xl">
-            Write and manage specs, generate AI-ready context, and orchestrate coding agents across local development, CI, and pull requests.
+            Organize specs, align shared context, orchestrate work across multiple agents, and add the governance needed to keep delivery maintainable over time.
           </p>
 
-          <p className="mx-auto mt-4 max-w-2xl font-body text-base leading-relaxed text-gray-400 md:text-lg">
-            AI coding sessions reset. Your decisions shouldn&apos;t.
+          <p className="mx-auto mt-4 max-w-3xl font-body text-base leading-relaxed text-gray-400 md:text-lg">
+            Most AI coding tools are built for local, short-lived solo workflows. Spekn is built for team continuity across onboarding, local development, CI, and pull requests.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

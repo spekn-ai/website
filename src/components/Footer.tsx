@@ -42,7 +42,7 @@ export function Footer() {
               <span className="font-brand text-xl font-bold">spekn</span>
             </Link>
             <p className="mt-4 font-body text-sm leading-relaxed text-slate dark:text-gray-400">
-              Spec-driven development for teams building with AI coding agents.
+              Team continuity for AI-assisted software delivery.
             </p>
             <p className="mt-3 font-body text-sm text-slate dark:text-gray-500">
               Sales and partnerships: <a href="mailto:contact@spekn.com" className="text-indigo underline hover:text-indigo/80">contact@spekn.com</a>
@@ -73,7 +73,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Spekn. All rights reserved.
           </p>
           <p className="mt-2 font-body text-sm text-slate/60 dark:text-gray-600 md:mt-0">
-            Where product intent is spoken, not assumed.
+            The right context, wherever work happens.
           </p>
         </div>
       </div>

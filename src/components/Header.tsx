@@ -85,12 +85,12 @@ export function Header() {
           >
             {dark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
-          <a
-            href="#waitlist"
+          <Link
+            to="/pricing"
             className="glow-button !rounded-lg !px-5 !py-2.5 text-sm"
           >
             Join Early Access
-          </a>
+          </Link>
         </div>
 
         {/* Mobile menu toggle */}
@@ -129,9 +129,9 @@ export function Header() {
             >
               Talk to Sales
             </a>
-            <a href="#waitlist" className="glow-button mt-2 text-center text-sm">
+            <Link to="/pricing" className="glow-button mt-2 text-center text-sm">
               Join Early Access
-            </a>
+            </Link>
           </nav>
         </div>
       )}

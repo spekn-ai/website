@@ -9,6 +9,13 @@ interface SeoProps {
   type?: "website" | "article";
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  article?: {
+    publishedTime: string;
+    modifiedTime: string;
+    author: string;
+    section?: string;
+    tags?: string[];
+  };
 }
 
 function upsertMeta(attrs: Record<string, string>, content: string) {
@@ -48,6 +55,7 @@ export function Seo({
   type = "website",
   noindex = false,
   jsonLd,
+  article,
 }: SeoProps) {
   useEffect(() => {
     const absoluteUrl = toAbsoluteUrl(path);
@@ -71,6 +79,18 @@ export function Seo({
 
     upsertMeta({ name: "robots" }, noindex ? "noindex, nofollow" : "index, follow");
 
+    if (article) {
+      upsertMeta({ property: "article:published_time" }, article.publishedTime);
+      upsertMeta({ property: "article:modified_time" }, article.modifiedTime);
+      upsertMeta({ property: "article:author" }, article.author);
+      if (article.section) {
+        upsertMeta({ property: "article:section" }, article.section);
+      }
+      article.tags?.forEach((tag, idx) => {
+        upsertMeta({ property: "article:tag", "data-idx": String(idx) }, tag);
+      });
+    }
+
     removeManagedJsonLd();
     if (jsonLd) {
       const payloads = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
@@ -82,7 +102,7 @@ export function Seo({
         document.head.appendChild(script);
       });
     }
-  }, [description, image, jsonLd, noindex, path, title, type]);
+  }, [article, description, image, jsonLd, noindex, path, title, type]);
 
   return null;
 }

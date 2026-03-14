@@ -29,6 +29,7 @@ export function BlogPost() {
   }
 
   const articlePath = `/blog/${post.slug}`;
+  const wordCount = post.content.split(/\s+/).length;
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -36,6 +37,9 @@ export function BlogPost() {
     description: post.excerpt,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
+    wordCount,
+    articleSection: "AI Software Engineering",
+    keywords: post.keywords.join(", "),
     author: {
       "@type": "Person",
       name: post.author,
@@ -43,13 +47,18 @@ export function BlogPost() {
     publisher: {
       "@type": "Organization",
       name: "Spekn",
+      url: toAbsoluteUrl("/"),
       logo: {
         "@type": "ImageObject",
         url: toAbsoluteUrl("/logo.svg"),
       },
     },
-    mainEntityOfPage: toAbsoluteUrl(articlePath),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": toAbsoluteUrl(articlePath),
+    },
     image: toAbsoluteUrl("/og-image.svg"),
+    inLanguage: "en",
   };
 
   return (
@@ -60,6 +69,13 @@ export function BlogPost() {
         path={articlePath}
         type="article"
         jsonLd={articleJsonLd}
+        article={{
+          publishedTime: post.publishedAt,
+          modifiedTime: post.updatedAt,
+          author: post.author,
+          section: "AI Software Engineering",
+          tags: post.keywords,
+        }}
       />
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-3xl px-6">

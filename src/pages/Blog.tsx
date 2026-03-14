@@ -1,14 +1,43 @@
 import { blogPosts } from "@/lib/blog-data";
 import { BlogCard } from "@/components/BlogCard";
 import { Seo } from "@/components/Seo";
+import { toAbsoluteUrl } from "@/lib/seo";
 
 export function Blog() {
+  const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Spekn Journal",
+    description:
+      "Writing on team continuity, context drift, harness engineering, governance, and making AI-assisted software delivery maintainable over time.",
+    url: toAbsoluteUrl("/blog"),
+    publisher: {
+      "@type": "Organization",
+      name: "Spekn",
+      url: toAbsoluteUrl("/"),
+      logo: {
+        "@type": "ImageObject",
+        url: toAbsoluteUrl("/logo.svg"),
+      },
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: blogPosts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: toAbsoluteUrl(`/blog/${post.slug}`),
+        name: post.title,
+      })),
+    },
+  };
+
   return (
     <div>
       <Seo
-        title="Blog | Spekn"
+        title="Spekn Journal — AI Software Engineering Blog"
         description="Writing on team continuity, context drift, harness engineering, governance, and making AI-assisted software delivery maintainable over time."
         path="/blog"
+        jsonLd={blogJsonLd}
       />
       <section className="bg-charcoal py-32">
         <div className="mx-auto max-w-4xl px-6 text-center">

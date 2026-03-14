@@ -7,6 +7,7 @@ export interface BlogPost {
   author: string;
   excerpt: string;
   readTime: string;
+  keywords: string[];
   content: string;
 }
 
@@ -22,6 +23,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Vibe coding and spec-driven development are often presented as competing philosophies. In reality, they represent different stages of the same transformation. The real challenge is managing intent, context, and execution across humans and AI agents over time.",
     readTime: "15 min read",
+    keywords: ["vibe coding", "spec-driven development", "AI coding agents", "context engineering", "context drift", "AI software engineering", "dynamic context delivery"],
     content: `Over the past year, a new style of programming has emerged. Developers are shipping real products using AI coding agents. Tools like Claude Code, Codex, Copilot, Cursor, and various autonomous agents are rapidly transforming how software is written.
 
 In this environment two approaches to AI-assisted development are gaining attention: **vibe coding** and **spec-driven development (SDD)**.
@@ -190,6 +192,7 @@ And that infrastructure is only beginning to emerge.`,
     excerpt:
       "AI agent speed is no longer the bottleneck. Coherence is. This guide defines drift, repeatability, and session-to-session consistency, then outlines an implementation model teams can apply across local runs, CI, and collaborative workflows.",
     readTime: "10 min read",
+    keywords: ["AI agent drift", "repeatability", "team consistency", "context coherence", "spec anchors", "session consistency"],
     content: `AI agents now produce code quickly enough that most teams hit a different constraint first: **context coherence over time**. When context drifts, output quality becomes unstable, review cost increases, and teams lose trust in automated execution.
 
 This article provides a practical model for reducing drift and improving repeatability across sessions, contributors, and tools.
@@ -285,6 +288,7 @@ Not byte-for-byte. It means outcomes remain within accepted behavioral bounds fo
     excerpt:
       "OpenAI just published something important. Not a new model. Not a benchmark. A blog post about how three engineers built a million-line codebase in five months — with zero hand-written code. They called the discipline behind it harness engineering.",
     readTime: "12 min read",
+    keywords: ["harness engineering", "AI development infrastructure", "agent harness", "context management", "AI governance", "feedback loops"],
     content: `OpenAI just published something important. Not a new model. Not a benchmark. A blog post about how three engineers built a million-line codebase in five months — with zero hand-written code. They called the discipline behind it **harness engineering**.
 
 The article describes a fundamental shift: when AI agents write all the code, engineering becomes the art of designing environments, feedback loops, and scaffolding that make autonomous agents reliable. The harness — the infrastructure wrapping the model — matters more than the model itself.
@@ -340,6 +344,7 @@ The harness is the product now.`,
     excerpt:
       "A systems engineer shared a conversation with us. Their AI agent made a critical architectural recommendation. It was wrong. The agent later corrected itself. But if that conversation had ended one message earlier, the wrong architecture would have shipped.",
     readTime: "8 min read",
+    keywords: ["AI decision tracking", "architectural decisions", "decision records", "AI memory", "context loss", "session persistence"],
     content: `Last week, a systems engineer shared a conversation with us. They were designing a container security architecture. The AI agent they were working with made a critical architectural recommendation. It was wrong. The agent later corrected itself. But here's the part that matters: **if that conversation had ended one message earlier, the wrong architecture would have shipped.**
 
 This isn't a story about AI being unreliable. It's a story about what happens when architectural decisions live only in chat windows.

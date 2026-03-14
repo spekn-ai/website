@@ -23,6 +23,7 @@ function useSectionReveal() {
 
 export function Home() {
   const containerRef = useSectionReveal();
+  const featuredPosts = blogPosts.slice(0, 2);
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -37,6 +38,17 @@ export function Home() {
       "@type": "WebSite",
       name: "Spekn",
       url: toAbsoluteUrl("/"),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Featured Articles",
+      itemListElement: featuredPosts.map((post, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: toAbsoluteUrl(`/blog/${post.slug}`),
+        name: post.title,
+      })),
     },
   ];
 

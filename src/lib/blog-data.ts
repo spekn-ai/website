@@ -12,6 +12,224 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "vibe-coding-vs-spec-driven-development",
+    title:
+      "Vibe Coding vs Spec-Driven Development — And the Missing Layer in AI Software Engineering",
+    date: "March 2026",
+    publishedAt: "2026-03-14",
+    updatedAt: "2026-03-14",
+    author: "Jean-Baptiste Pin",
+    excerpt:
+      "Vibe coding and spec-driven development are often presented as competing philosophies. In reality, they represent different stages of the same transformation. The real challenge is managing intent, context, and execution across humans and AI agents over time.",
+    readTime: "15 min read",
+    content: `Over the past year, a new style of programming has emerged. Developers are shipping real products using AI coding agents. Tools like Claude Code, Codex, Copilot, Cursor, and various autonomous agents are rapidly transforming how software is written.
+
+In this environment two approaches to AI-assisted development are gaining attention: **vibe coding** and **spec-driven development (SDD)**.
+
+They are often presented as competing philosophies. In reality, they represent different stages of the same transformation in software engineering.
+
+But the discussion misses something deeper.
+
+The real challenge is not choosing between vibe coding and SDD. The real challenge is managing intent, context, and execution across humans and AI agents over time.
+
+## The Rise of Vibe Coding
+
+Vibe coding is the natural starting point for AI-assisted development. Instead of writing code directly, developers collaborate with an AI through iterative prompts until the implementation "feels right."
+
+A typical loop looks like this: idea, prompt, generated code, adjustment, repeat.
+
+The appeal is clear. Vibe coding enables:
+
+- Rapid prototyping
+- Creative exploration
+- Minimal upfront planning
+- Fast iteration
+
+A developer can go from idea to working prototype in minutes. For small projects or exploratory work, this approach is highly effective.
+
+However, the same characteristics that make vibe coding effective also introduce structural weaknesses. Because the system is guided primarily through conversational prompts, many architectural decisions are never explicitly defined. They emerge implicitly during the conversation.
+
+As a result:
+
+- Different runs may produce different architectures
+- Intent can drift over time
+- Constraints must be repeated across sessions
+
+When the system grows beyond a prototype, these hidden decisions accumulate into technical debt.
+
+## The Limits of Prompt-Driven Development
+
+The core limitation of vibe coding is **intent ambiguity**.
+
+AI models generate code based on probability. When instructions are vague or incomplete, the model fills the gaps with plausible guesses.
+
+A prompt like "Build a billing system for subscriptions" may produce many valid implementations. Some might use Stripe integration, others internal billing logic, event-driven architecture, or cron-based reconciliation. All might technically satisfy the prompt. But only one aligns with the developer's intended architecture.
+
+Without a shared reference describing the system's constraints and expected behavior, the model must infer intent from limited signals.
+
+This problem becomes more pronounced when development spans multiple sessions. AI coding sessions reset frequently. When they do, the model forgets architectural decisions, design constraints, implementation rationale, and long-term project goals.
+
+Developers often compensate by writing increasingly large context files: CLAUDE.md, memory.md, decisions.md, architecture.md.
+
+These files help preserve knowledge between sessions. But they also introduce a new problem.
+
+## The Context Scaling Problem
+
+Static context files quickly become difficult to maintain. As projects grow, context documents expand, repositories accumulate specification files, and agents receive more and more irrelevant information.
+
+Eventually the system begins to suffer from **context overload**.
+
+Even with modern models supporting hundreds of thousands or even millions of tokens, large context windows do not fully solve this issue. More context does not necessarily mean better reasoning.
+
+Large context windows often introduce:
+
+- Noise
+- Redundancy
+- Irrelevant historical data
+
+Agents must process information that is unrelated to the current task. This degrades efficiency and increases the risk of mistakes.
+
+The problem is not simply the amount of context. It is how context is structured and delivered.
+
+## The Emergence of Spec-Driven Development
+
+Spec-driven development addresses this issue by formalizing intent before implementation. Instead of starting from prompts, teams begin with structured specifications describing system behavior, constraints, acceptance criteria, and architectural decisions.
+
+The development workflow becomes: specification, design, implementation, validation.
+
+AI agents use the specification as a reference when generating code.
+
+This approach provides several advantages:
+
+- It improves alignment between intent and implementation
+- It makes architectural decisions explicit rather than implicit
+- It makes onboarding easier, because new contributors can understand the system through its specification
+
+Spec-driven development is therefore particularly valuable for production systems, where long-term maintainability matters.
+
+However, SDD introduces its own challenges.
+
+## The Hidden Cost of Static Specifications
+
+When specifications are treated as static documents, they eventually diverge from the system they describe. Developers forget to update them. Architectural decisions evolve. The codebase moves forward while the specification lags behind.
+
+Maintaining large specification documents becomes an additional burden. The result is a familiar situation in software engineering: documentation exists but is no longer trustworthy.
+
+In the context of AI-assisted development, this problem becomes more pronounced. Agents rely heavily on the accuracy of the context they receive. If the specification is outdated or inconsistent, the agent may generate code based on incorrect assumptions.
+
+In other words: **static specifications solve the problem of intent clarity, but not the problem of intent maintenance.**
+
+## A Deeper Shift in Software Engineering
+
+To understand what is happening, it helps to step back and examine the broader evolution of software development.
+
+Over the past two decades, the industry has repeatedly introduced new abstractions to manage complexity. We moved from code-centric development, to version control systems, to continuous integration, to infrastructure as code, to workflow orchestration.
+
+Each step introduced a new layer that helped teams coordinate increasingly complex systems.
+
+AI-assisted development introduces a new dimension of complexity. Instead of coordinating only humans and machines, we now coordinate humans, agents, and models. This requires new infrastructure.
+
+The emerging stack of AI software engineering looks something like this:
+
+- Models
+- Agent runtimes
+- Agent orchestration
+- Context and specification systems
+- Organizational governance
+
+Most current tools focus on the lower layers. Agent runtimes execute tasks. Orchestrators coordinate multiple agents. Spec frameworks define context for individual runs.
+
+But the higher layers — where teams manage intent across repositories, sessions, and contributors — remain largely undefined.
+
+## The Missing Layer: Managing Intent Over Time
+
+The real challenge of AI-assisted development is not generating code. It is maintaining coherent intent across time, agents, and teams.
+
+Consider what happens when a project evolves over months. Multiple developers contribute. Several AI agents run tasks in parallel. Architectural decisions change. New team members join the project.
+
+In this environment, several questions become critical:
+
+- What decisions were made and why?
+- What constraints must never be violated?
+- Which specifications still apply?
+- How should context be delivered to agents for a given task?
+
+These questions cannot be answered by static context files alone. They require systems that dynamically manage knowledge about the project.
+
+## Dynamic Context Delivery
+
+One promising direction is **dynamic context delivery**. Instead of providing agents with entire documents, the system retrieves only the information relevant to the current task.
+
+This approach treats project knowledge more like a queryable knowledge system than a collection of files.
+
+When an agent begins a task, the system assembles a tailored context including:
+
+- Relevant specifications
+- Recent architectural decisions
+- Affected code regions
+- Related tasks
+
+Agents receive concise and relevant context. Context remains manageable even as projects grow. And project knowledge becomes easier to maintain because it is structured rather than purely textual.
+
+Dynamic context delivery also makes it possible for non-technical contributors to participate more easily. Product managers or designers can express intent at a higher level, while the system translates that intent into structured context for agents.
+
+This is the approach behind Spekn's context engineering layer — specifications are not flat files but structured, layered artifacts that are delivered dynamically based on task scope and agent role.
+
+## Why Teams Will Eventually Need This
+
+As AI coding becomes more capable, development will increasingly involve long-running autonomous agents. These agents may implement features, fix bugs, write tests, refactor code, and update dependencies. They may operate continuously across repositories and CI pipelines.
+
+When that happens, organizations will require systems that provide:
+
+- Traceability
+- Verification
+- Governance
+- Context management
+
+Without such systems, development risks becoming unpredictable. Agents may implement conflicting changes. Architectural constraints may be violated. Decision histories may be lost.
+
+The same problems that once motivated version control and CI pipelines will reappear in a new form.
+
+## Vibe Coding and Spec-Driven Development Are Not Opposites
+
+In practice, the future of AI-assisted development will likely combine both approaches.
+
+Vibe coding will remain valuable during exploration and prototyping. Spec-driven workflows will become increasingly important as systems mature.
+
+The transition might look like this:
+
+1. Exploration through vibe coding
+2. Formalization through specifications
+3. Execution by agents
+4. Verification and governance
+
+Rather than replacing vibe coding, spec-driven systems provide structure when projects grow beyond the exploratory stage.
+
+## The Next Phase of AI Software Engineering
+
+The industry is still in the early stages of understanding how to build software with AI agents.
+
+Many developers are experimenting with context engineering, memory systems, agent orchestrators, and autonomous coding agents. These experiments reveal a common pattern: developers are trying to preserve project knowledge and coordinate agents across sessions.
+
+But the tools available today only partially solve this problem.
+
+The next phase of AI software engineering will likely focus on systems that manage context, execution, and governance across teams and projects.
+
+In other words, the industry is beginning to discover the need for a **control layer for AI development**.
+
+## Conclusion
+
+The debate between vibe coding and spec-driven development is not about choosing one approach over the other. It reflects a deeper shift in how software is built.
+
+AI models have dramatically reduced the cost of generating code. But generating code is only part of the problem. The harder challenge is ensuring that code generation remains aligned with the evolving intent of a project.
+
+As teams increasingly rely on AI agents, new systems will be needed to manage context, coordinate execution, and preserve decisions over time.
+
+The future of AI software engineering will not be defined solely by better models. It will be defined by the infrastructure that allows humans and agents to build complex systems together.
+
+And that infrastructure is only beginning to emerge.`,
+  },
+  {
     slug: "ai-agent-drift-repeatability-team-consistency",
     title:
       "AI Agent Drift: A Practical System for Repeatability and Team Consistency",

@@ -1,9 +1,24 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
+import { BlogDiagram } from "@/components/BlogDiagram";
 import { Seo } from "@/components/Seo";
 import { toAbsoluteUrl } from "@/lib/seo";
 import { NotFound } from "./NotFound";
+
+function renderInline(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/);
+  return parts.map((part, j) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={j} className="font-semibold text-charcoal dark:text-gray-200">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
 
 export function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -74,6 +89,11 @@ export function BlogPost() {
       <section className="bg-ghost py-16 dark:bg-charcoal">
         <article className="prose prose-lg dark:prose-invert mx-auto max-w-3xl px-6">
           {post.content.split("\n\n").map((paragraph, i) => {
+            // Diagram blocks
+            const diagramMatch = paragraph.match(/^\[diagram:([\w-]+)\]$/);
+            if (diagramMatch) {
+              return <BlogDiagram key={i} type={diagramMatch[1]} />;
+            }
             if (paragraph.startsWith("## ")) {
               return (
                 <h2 key={i} className="mt-12 mb-4 font-brand text-2xl font-extrabold">
@@ -91,10 +111,10 @@ export function BlogPost() {
             if (paragraph.startsWith("- ")) {
               const items = paragraph.split("\n").filter((l) => l.startsWith("- "));
               return (
-                <ul key={i} className="my-4 space-y-2">
+                <ul key={i} className="my-4 list-disc space-y-2 pl-6">
                   {items.map((item, j) => (
-                    <li key={j} className="font-body text-base leading-relaxed text-slate dark:text-gray-400">
-                      {item.replace("- ", "")}
+                    <li key={j} className="font-body text-base leading-relaxed text-slate marker:text-indigo/50 dark:text-gray-400 dark:marker:text-indigo/40">
+                      {renderInline(item.replace(/^- /, ""))}
                     </li>
                   ))}
                 </ul>
@@ -105,23 +125,16 @@ export function BlogPost() {
               return (
                 <ol key={i} className="my-4 list-decimal space-y-2 pl-6">
                   {items.map((item, j) => (
-                    <li key={j} className="font-body text-base leading-relaxed text-slate dark:text-gray-400">
-                      {item.replace(/^\d+\.\s*/, "").replace(/\*\*(.*?)\*\*/g, "$1")}
+                    <li key={j} className="font-body text-base leading-relaxed text-slate marker:text-indigo/50 dark:text-gray-400 dark:marker:text-indigo/40">
+                      {renderInline(item.replace(/^\d+\.\s*/, ""))}
                     </li>
                   ))}
                 </ol>
               );
             }
-            // Handle bold text
-            const parts = paragraph.split(/(\*\*.*?\*\*)/);
             return (
               <p key={i} className="my-4 font-body text-base leading-relaxed text-slate dark:text-gray-400">
-                {parts.map((part, j) => {
-                  if (part.startsWith("**") && part.endsWith("**")) {
-                    return <strong key={j} className="font-semibold text-charcoal dark:text-gray-200">{part.slice(2, -2)}</strong>;
-                  }
-                  return part;
-                })}
+                {renderInline(paragraph)}
               </p>
             );
           })}

@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(tail:*)"
+      "Bash(tail:*)",
+      "Bash(npm install:*)",
+      "Bash(npm search:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx vite:*)"
     ]
   }
 }

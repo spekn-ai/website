@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { FileText, Play, Database, Terminal, ShieldCheck, BookOpen, Bot, GitBranch, Search, ArrowRight } from "lucide-react";
+import { FileText, Play, Database, Terminal, ShieldCheck, BookOpen, Bot, GitBranch, Search, ArrowRight, BookText } from "lucide-react";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { Seo } from "@/components/Seo";
 import { toAbsoluteUrl } from "@/lib/seo";
+import { blogPosts } from "@/lib/blog-data";
 
 function useSectionReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -345,6 +346,52 @@ export function Home() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 dark:bg-charcoal-light">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="section-reveal text-center">
+            <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo/10 text-indigo">
+              <BookText size={28} />
+            </div>
+            <h2 className="font-brand text-3xl font-extrabold md:text-4xl">From the Spekn Journal</h2>
+            <p className="mx-auto mt-4 max-w-2xl font-body text-lg text-slate dark:text-gray-400">
+              How teams are navigating AI-assisted development — from context drift to governance.
+            </p>
+          </div>
+          <div className="section-reveal mt-12 grid gap-6 md:grid-cols-2">
+            {blogPosts.slice(0, 2).map((post) => (
+              <Link
+                key={post.slug}
+                to={`/blog/${post.slug}`}
+                className="group rounded-xl border border-gray-200 bg-ghost/50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-indigo/30 hover:shadow-lg hover:shadow-indigo/5 dark:border-gray-800 dark:bg-charcoal/50"
+              >
+                <div className="flex items-center gap-3 text-xs text-slate dark:text-gray-500">
+                  <span>{post.date}</span>
+                  <span>&middot;</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <h3 className="mt-3 font-brand text-lg font-bold leading-snug transition-colors group-hover:text-indigo">
+                  {post.title}
+                </h3>
+                <p className="mt-3 font-body text-sm leading-relaxed text-slate dark:text-gray-400 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <div className="mt-4 flex items-center gap-2 font-body text-sm font-medium text-indigo">
+                  Read more <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="section-reveal mt-8 text-center">
+            <Link
+              to="/blog"
+              className="inline-flex items-center gap-2 font-body text-sm font-semibold text-indigo transition-colors hover:text-indigo-deep"
+            >
+              View all articles <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
